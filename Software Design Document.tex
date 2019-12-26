@@ -19,7 +19,7 @@
 %Modified for EECS 393 project in Spring 2017
 %Dina Benayad-Cherif, Jason Dong, Mark Lalor, Yousef Mahmoud, Vimig Socrates
 \documentclass[16pt]{scrreprt}
-
+\usepackage{longtable}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{float}
@@ -113,33 +113,314 @@
 \chapter{Introduction}
 
 \section{Purpose}
-This design document describes the overall structure of the Class Collaboration Application (CCA) by outlining significant aspects of the system’s architecture.
+This design document describes the overall structure of iSport by outlining significant aspects of the system’s architecture.\\
+
+\noindent  The purpose of this document is to present a detailed description of iSport. It shows how the software system will be structured to satisfy the requirements.
 
 
 \section{Scope}
-This application will be used for students at Case Western Reserve University to collaborate and discuss specific courses they are in with other students. Some of the key features of this application are that students will be able to chat with other students in the course, upload class notes or other miscellaneous documents to discuss, and ask questions. Users will also be able to download any documents uploaded for a course that they are enrolled in and can personalize their own account on the CCA. 
+This software system will be a web based system for sports fans, professional athletes, and patients who are under recovering training. \\
+\\
+This system will be designed to maximize the exercising efficiency by providing tools to assist in checking and correcting user's wrong postures and recommending training courses customized for users, which would otherwise have to be expensive, time-consuming and labor intensive. By maximizing the user’s training efficiency and convenience the system will meet the needs of sports fans, athletes and injured patients while remaining easy to understand and use.\\
+\\
+More specifically, this system is designed to allow a user to imitate the standard exercising postures while observe and correct their mistakes simultaneously with the help of a website. \\
+\\
+The software will collect some professional courses in the database, including static and dynamic trainings which means doing exercise according to a set of images or a video and iSport will recommend suitable trainings for users on the basis of their training performance. Courses are classified into exercising courses and recovering courses, aiming to help athletes and patients respectively.\\
+\\
+Both visual and audio notification are used in every course of the system to provide eye-catching, user-friendly and clear instructions; the feedback of one's training is proposed once the training is over and the report can be browsed in the report page.\\
+\\
+The selection and deletion of one user's favorable course is supported in personal information webpage and one can comment training he/she has taken on comment webpage to provide suggestions to other users.\\
+\\
+ The personal information registering, changes is allowed via the application options. The system also contains a relational database containing a list of users, training images and videos.
 
 \section{Acronyms, Abbreviations and Definitions}
-\textit{CCA (Class Collaboration Application)} - Acronym of the name of the application.  \\
-\textit{PaaS (Platform as a Service)} - Acronym of a cloud computing platform. \\
-\textit{IaaS (Infrastructure as a Service)} - Acronym of a cloud computing infrastructure.\\
-\textit{VM (Virtual Machine)} - Acronym of virtual machine. \\
-\textit{SSO (Single Sign-On)} - Acronym of a tool for access control across several independent software systems. 
+\begin{longtable}{|p{1.9in}|p{4in}|c|}
+xxxxx & xxxxxx  \kill
+\caption{Definitions\label{simple}}\\ \hline
+\multicolumn{3}{|c|}{\bf Definitions, Acronyms, and Abbreviations}\\ \hline
+\endfirsthead
+\caption[]{(continued)}\\ \hline
+\multicolumn{3}{|c|}{\bf Definitions, Acronyms, and Abbreviations (continued)}\\
+\hline
+\endhead
+\hline
+\multicolumn{3}{|c|}{\bf Continued $\ldots$}\\
+\hline
+\endfoot
+\hline
+\multicolumn{3}{|c|}{\bf The End}\\
+\hline
+\endlastfoot
+Term & Definitions  \\
+\hline
+User & Someone who interacts with iSport including sports fans, athletes and  injured patients who need recovery training.\\  \hline  
+Sports fans & One of iSport's potential customers who love sports and want to get professional instructions when exercising. Some of them may can't afford the expense of personal coaching or don't have time to go to the gym. \\ \hline
+Athletes & One of iSport's potential customers who want to get real-time exercising feedback to improve their performance or who want to get some relaxing training in their spare time to keep a good competitive state.\\  \hline
+Injured Patients & One of iSport's potential customers who need recovering training after some treatments, e.g. surgeries. On the one hand, some of them may can't afford the doctor's expensive medical instructions for recovering training. on the other hand, there is no enough doctors or nurses who can instruct and supervise the patients' recovering exercising. But without professional instructions training can be useless or even leads to secondary trauma.\\  \hline
+Admin/Administrator & System administrator who is given specific permission for managing and controlling the system, e.g. updating the user's information, uploading new training courses.\\ \hline
+User Info & User's basic information including user's avatar, account name, tel-number and email address.\\ \hline
+Courses & Training courses including normal exercising training and recovering training.\\ \hline
+Exercise Courses & Training courses which serve the sports fans and athletes.\\ \hline
+Recover Courses & Training courses which serve the injured patients.\\ \hline
+Static Courses & Training courses which instruct the users photo by photo.\\ \hline
+Dynamic Courses & Training courses which instruct the users according to a standard video.\\ \hline
+Appraisal Subsystem & Remark the user's performance by using a grade from 0 -100\\ \hline
+Comment Subsystem & User comment on the training courses they have taken to provide reference for other users.\\ 
+\hline 
+Recommendation Subsystem & A subsystem which will provide some courses for users according to their recent performance.\\ 
+\hline
+Exercise Tips & There will be sports tips in the webpage of iSport to prevent users from athletic injuries.\\ 
+\hline 
+Sport Report & A web page to feedback the user's exercising performance.\\ 
+\hline 
+Audio Notification & An audio notification will be shown when the user is doing exercise to encourage the user to hold on or notify the user to correct their postures.\\ 
+\hline 
+Visual Notification & A visual notification will be shown when the user is doing exercise, if the user's posture is standard, then the web-frame will turn green to suggest the user to hold on, otherwise the web-frame will be red.\\ 
+\hline 
+DataBase & A relational database containing a list of user info, training images and videos.\\ 
+\hline 
+Detection Subsystem & Subsystem to detect the user's postures and draw the user's skeleton. The main model of detection subsystem is PoseNet.\\ 
+\hline 
+Comparison Subsystem & Subsystem to compare the postures of the user and that of the standard. The subsystem aims to check if the user pass the posture.\\ 
+\hline 
+Correction Subsystem & Subsystem to calculate where the postures' wrong part are, e.g. left-arm, right-leg, head.\\ 
+\hline 
+Clients & Group who delegate the development of iSport to the developers and will take charge of the later management of iSport.\\ \hline
+Developers & Develop team including project managers, programmers, testers who are responsible for the development of iSport and its later mainteinance and updating.\\ 
+\hline 
+\end{longtable}
 
 \section{Overview}
-This document is an overview of the software architecture of the Class Collaboration Application in high detail. We start by providing all the principal classes that the application is built on as well as their responsibilities to the success of the application. Next, we provide diagrams to show the hierarchy of our classes and the architectural design. Finally, we develop a general API of the major class methods used to build the functionality of our application. There are also mockups of our UI design included in our design document. 
+This document is an overview of the software architecture of iSport in high detail. We start by providing all the principal components that the application is built on as well as their responsibilities to the success of the application. Next, we provide diagrams to show the hierarchy of our classes and the architectural design. Finally, we develop a general API of the major class methods used to build the functionality of our application. There are also mockups of our UI design included in our design document. 
 
 \section{Reference Material}
-\textit{Book Inventory System System Design Document.} December 8 2010. \\
-ZZZ Company. \textit{ZZZ Software Architecture.} October 2 2015. 
+\subsubsection{Standard References}
+The standards we have followed are as follows:\\
 
+$[1]$ T. Russell, A. Brizee, E. Angeli, and R. Keck, “Mla formatting and style guide,” The Purdue OWL, 2010.\\
+
+$[2]$ Barnard, H Jack and Metz, Robert F and Price, Arthur L et al., A recommended practice for describing software designs: IEEE standards project 1016, 1986.\\
+
+$[3]$ R. S. Pressman, Software engineering: a practitioner’s approach. Palgrave Macmillan, 2005.\\
+
+\subsubsection{Writing Tools References}
+The writing tools we have used are as follows:\\
+
+$[4]$ L. Lamport, LATEX: a document preparation system: user’s guide and reference manual. Addison-wesley, 1994.\\
+
+$[5]$ S. Wong, “Staruml tutorial,” Connexions Web site, Sep, 2007.\\
+
+$[6]$ P. O. Team, “Process on tools,” https://www.processon.com/support.
 
 %%%%%%%%%%%%%%%%%%%
 % SYSTEM OVERVIEW %
 %%%%%%%%%%%%%%%%%%%
 
 \chapter{System Overview}
+\section{Product Perspective}
 
+ISport is a web system developed by isport team, aimming at posture correcting with the assist of camera.\\
+
+The user-case diagram in the folowing figure illustrates the user-case in the system. The system is expected to evolve over at least three releases, ultimately allowing for complete streamlining of the posture correcting process, fitness classes and rehabilitation classes for learning.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{diagrams/big-user-case.png}
+	\caption{overall user-case diagram}
+\end{figure}
+
+
+
+\section{Product Functionality}
+
+ISport contains these following key features:\\
+
+Let the user register their account of the website through their mobile phone or e-mail.\\
+
+ 
+Let the user log in to the system by correctly complete the log-in form. If the username is not in the database, the user will be prompted to register his/her account.\\
+
+ 
+User can modify his/her account information after logging in, including the username, e-mail address, phone number, gender, age and so on.\\
+
+ 
+Show all the sorted fitness courses in a list for user to choose in the fitness courses view page. \\
+
+ 
+Show a list of courses that the user has selected to learn before\\
+
+ 
+Show a list of recommended courses for the user by user's previous behavior \\
+
+ 
+Show the comment and evaluation of each courses in their detailed page\\
+
+ 
+Provide the add button for user to add a course he/she want to learn in the future and add the course to his/her courses list.\\
+
+ 
+Provide the delete button for user to remove a course he/she doesn't want to learn and remove the course from his/her courses list.\\
+
+
+Generate user's exercise report for watching and analyzing in the report page\\
+ 
+Give the user a space to leave his/her evaluation about the courses learnt before\\
+
+Capture and Collect the posture data of the user in front of the computer and store the data in the server.\\
+
+
+Compare user's posture with the standard one and calculate the similarity between the postures.\\
+
+
+Show tips on the user's screen to notice the wrong posture of the user and help to correct them.\\
+
+
+Rate the user's posture on a scale of zero to ten to let the user know whether his posture is standard or not\\
+
+
+System administrator can upload new courses to the system for users to choose and learn.\\
+
+\section{Users and Characteristics}
+
+ 
+\begin{center}
+    \begin{tabular}{p{5cm}p{11cm}}
+        \hline
+	    Users & Desc\\
+        \hline
+	    People who want to correct their posture &  Normal user is expected to register and log in the system, upload their posture and get the feedback advice from the system\\
+        \hline
+	    People who want to be fitness & People who want to be fitness is expected to register and log in the system, choose fitness classes for themselves and learn it on the website\\
+        \hline
+        People who need rehabilitation & People who need rehabilitation is expected to register and log in the system, choose fitness classes for themselves and learn it on the website\\
+        \hline
+        System Administrator & System Administrator has the privilege to update posture information in the database. The Administrator does not directly interact with the website\\
+        \hline
+    \end{tabular}
+\end{center}
+
+ 
+\section{Operating Environment}
+
+ 
+\subsubsection{Hardware}
+
+ 
+\noindent1. Server\\
+
+ 
+CPU: Intel Dual-Core 2.4GHz\\
+
+ 
+Memory: 8GB\\
+
+ 
+External Storage: 500G SSD\\
+
+ 
+Quantity: 1\\
+
+ 
+\noindent 2. Client(Minimum Configuration)\\
+
+ 
+CPU: Single-Core 1GHz\\
+
+ 
+Memory: 2G\\
+
+ 
+External Storage: 20GB HDD\\
+
+ 
+\subsubsection{Software}
+
+ 
+\noindent 1. Server\\
+
+ 
+Operating System: Ubuntu 18.04 LTS\\
+
+ 
+Database: MySQL\\
+
+ 
+Software and Library : Python, Spring, TensorFlow, Nginx\\
+
+ 
+\noindent 2. Client\\
+
+ 
+Operating System: Windows/macOS/Linux/Android/IOS\\
+
+ 
+Software: Browser\\
+
+ 
+\begin{center}
+    \begin{tabular}{p{7cm}p{7cm}}
+        \hline
+	    Recommand Browser & Version\\
+        \hline
+	    Google Chrome &  44+\\
+        \hline
+	    Mozilla Firefox & 40+\\
+        \hline
+        Apple Safari & 7+\\
+        \hline
+        Microsoft Edge & 12+\\
+        \hline
+        Microsoft Internet Explorer & 11+\\
+        \hline
+        Opera Opera & 31+\\
+        \hline
+
+ 
+    \end{tabular}
+\end{center}
+
+ 
+\section{Design and Implementation Constraints}
+
+ 
+\noindent 1. Memory: Server will have 500GB internal hard drive. Softwares and database cannot exceed this amount. System administrator must notice this limitation. And each user should follow the rule that the video data uploaded each time shall not be greater than 100M\\
+
+ 
+\noindent 2. Language requirements: software must be multilingual, including the following languages: English, Chinese\\
+
+ 
+\noindent 3. Number of user: each video uploaded must be one person. Each time this system can only deal with one person's data.\\
+
+ 
+\section{User Documentation}
+
+ 
+Along with this system: iSport, a user manual need to be written to help users understand how to operate the system. It would be written for nontechnical individuals and the level of content would differ considerably from a system administration guide, which is more detailed and complex. The user manual would follow common user documentation styles to be simple.\\
+
+ 
+Trying to use step-by-step instructions for users who firstly log in to the website, by showing messaging structures, quick references, tips and glossary of terms.\\
+
+ 
+User document can be written in HyperText Markup Language (HTML) or Portable Document Format (PDF) , which must describe the use of the software system.
+
+ 
+\section{Assumptions and Dependencies}
+
+ 
+It is assumed that the website will work correctly with every third-party operating
+system and compatible across all of the major browsers.\\
+
+ 
+Assumed that the web server always runs well without down or not responding.\\
+
+ 
+ISport provides two kinds of classes for user to choose: fitness classes and rehabilitation classes.\\
+
+ 
+Website visitors who have not been registered are only allowed to watch some demo videos, they are not allowed to upload their posture video data before registering.\\
+
+ 
+In addition to test their posture and attend into courses, members are also allowed to update their information, but they have to log in first.\\
 %%%%%%%%%%%%%%%%%%%%%%%
 % SYSTEM ARCHITECTURE %
 %%%%%%%%%%%%%%%%%%%%%%%
