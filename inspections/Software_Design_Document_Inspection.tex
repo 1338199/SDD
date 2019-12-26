@@ -1,0 +1,43 @@
+%Created for EECS 393 project in Spring 2017
+%Dina Benayad-Cherif, Jason Dong, Mark Lalor, Yousef Mahmoud, Vimig Socrates
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{array}
+\usepackage[english,ngerman]{babel}
+\setlength\extrarowheight{3pt}
+
+\hypersetup{
+    bookmarks=false,
+    pdftitle={Inspection for Software Design Document},
+    pdfauthor={Dina Benayad-Cherif, Jason Dong, Mark Lalor, Yousef Mahmoud, Vimig Socrates},
+    pdfsubject={EECS 393 Software Design Document Inspection},
+    pdfkeywords={Software, Design, Document, Inspection}
+}
+
+\begin{document}
+
+\begin{tabular}{| p{2cm} | p{2cm} | p{6cm} | p{2cm} | p{2cm} |}
+	\hline
+	\multicolumn{5}{ |c| }{\Large Inspection for Software Design Document} \\ \hline
+	\multicolumn{3}{ |p{9cm}| }{\textbf{Name of Inspectors:} Vimig Socrates, Mark Lalor, Dina Benayad-Cherif, Jason Dong and Yousef Mahmoud}  & \multicolumn{2}{ |p{5cm}| }{\textbf{Name of Project:} Class Collaboration Application (CCA)} \\ \hline
+	\multicolumn{5}{ |l| }{\textbf{Name of Deliverable:} Software Design Document} \\ \hline
+		\multicolumn{3}{ |p{9cm}| }{\textbf{Inspection Date:} 2/24/2017}  & \multicolumn{2}{ |p{5cm}| }{\textbf{Reinspection:} No} \\ \hline
+	Defect \# & Location & Description & Severity & Resolved \\ \hline
+	1 & Throughout & Changed the term Class to Course to avoid confusion between an object class and the actual class a student can take.  & Maj & Yes (Mark) \\ \hline
+	2 & Throughout & Changed an application feature so that only Courses have chats. & Maj & Yes (Yousef) \\ \hline 
+	3 & Design Rationale & There were some grammatical errors in the first paragraph. & Min & Yes (Dina) \\ \hline
+	4 & Class Interfaces & Added missing constructors to class interfaces to all of the remaining classes. & Maj & Yes (Mark) \\ \hline
+	5 & Class Interfaces & Fixed the description of Document's Download method (should output binary data not a boolean). & Min & Yes (Mark) \\ \hline
+	6 & Throughout & Ensured proper tenses used throughout the document. & Min & Yes (Vimig) \\ \hline
+	7 & Principal Class & Included more specific responsibilities in Student & Min & Yes (Vimig) \\ \hline
+	8 & Principal Class & Changed Course Item object description to be a container instead of document itself & Maj & Yes (Vimig) \\ \hline
+	9 & Principal Class/Class Interfaces & Included User Information into Chat object & Maj & Yes (Vimig) \\ \hline
+	9 & Class Interfaces & Standardized parantheses & Min & Yes (Vimig) \\ \hline
+	10 & System Architecture & Added a Description of Architectural Goals section to support the diagrams. &Maj & Yes (Jason) \\ \hline
+	11 &System Architecture & Removed Decomposition Description &Maj & Yes (Jason) \\ \hline
+
+\end{tabular}
+
+\end{document}

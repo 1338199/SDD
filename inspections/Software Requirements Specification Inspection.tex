@@ -1,0 +1,35 @@
+%Created for EECS 393 project in Spring 2017
+%Dina Benayad-Cherif, Jason Dong, Mark Lalor, Yousef Mahmoud, Vimig Socrates
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{array}
+\setlength\extrarowheight{3pt}
+
+\hypersetup{
+    bookmarks=false,
+    pdftitle={Inspection for Software Requirements Specification},
+    pdfauthor={Dina Benayad-Cherif, Jason Dong, Mark Lalor, Yousef Mahmoud, Vimig Socrates},
+    pdfsubject={EECS 393 Software Requirements Specification Inspection},
+    pdfkeywords={SRS, Software, Requirements, Specification, Inspection}
+}
+
+\begin{document}
+
+\begin{tabular}{| p{2cm} | p{2cm} | p{6cm} | p{2cm} | p{2cm} |}
+	\hline
+	\multicolumn{5}{ |c| }{\Large Inspection for Software Requirements Specification} \\ \hline
+	\multicolumn{3}{ |p{9cm}| }{\textbf{Name of Inspectors:} Vimig Socrates, Mark Lalor, Dina Benayad-Cherif, Jason Dong and Yousef Mahmoud}  & \multicolumn{2}{ |p{5cm}| }{\textbf{Name of Project:} Class Collaboration Application (CCA)} \\ \hline
+	\multicolumn{5}{ |l| }{\textbf{Name of Deliverable:} Software Requirements Specification} \\ \hline
+		\multicolumn{3}{ |p{9cm}| }{\textbf{Inspection Date:} 2/16/2017}  & \multicolumn{2}{ |p{5cm}| }{\textbf{Reinspection:} No} \\ \hline
+	Defect \# & Location & Description & Severity & Resolved \\ \hline
+	1 & Throughout & The document was not specific on the distinction between a document container (ClassItem) and the document itself. & Maj & Yes (Vimig) \\ \hline
+	2 & Security Requirements & Removed previous SE-2 which was using terms that never were supposed to make it into the final version. & Min & Yes (Mark) \\ \hline
+	3 & Throughout & Fixed inconsistencies between "Google" account and "Gmail" account. & Min & Yes (Mark) \\ \hline
+	4 & Classes and Characterisitics & Fixed some grammatical errors, referring to "Student's" when it should be plural "Students". & Min & Yes (Dina) \\ \hline
+	5 & Security Requirements & Changed the wording because users won't actually be creating chats. They will only have access to the general chats and assignment/resource chats for the courses they've joined. &Maj & Yes (Jason) \\ \hline
+	6 & Software Interfaces & Google Accounts was not included as a software interface. & Maj & Yes (Jason) \\ \hline
+\end{tabular}
+
+\end{document}
