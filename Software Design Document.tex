@@ -24,7 +24,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{float}
 \usepackage{graphicx}
-
+\usepackage{makecell}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage[bookmarks=true]{hyperref}
@@ -464,47 +464,205 @@ The Class Collaboration Application will be hosted by the Google App Engine and 
 	
 \section{Component:User Info Management}
 \subsection{Component Description}
-This component manage the user information. User can register through this component and check or change their information.
+Users who use the platform for the first time need to register first. After successful registration, the system will jump to the login page. Users log in to the system through a valid user name and password, and then jump to the home page.\\
+
+\noindent When users view their personal information on the personal page, they need to obtain the information saved in the database. Modifying personal information also needs to submit the modified information to the database of iSport.\\
+
+\noindent All the above behaviors must interact with the database and blockchain to obtain and change the corresponding user personal information. The call relationship between classes is shown in the figure below:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{diagrams/userinfo.png}
+	\caption{Class Diagram of UserInfo Component}
+\end{figure}
 \subsection{Responsibilities}
 \begin{itemize}
-	\item Monitoring the current session of the user.
-	\item Querying any user updates in the database. 
-	\item Displays all the courses the student is enrolled in. 
-	\item Recording when the user has gone idle. 
-	\item Uploads and removes documents their own documents.
-	\item Can create CourseItems for a specific course.
-	\item Can join or create courses.
+	\item User can register through UserInfo Component.
+	\item User can login iSport by UserInfo Component. 
+	\item User can check his/her information through UserInfo Component on Profile Page. 
+	\item User can update his/her information through UserInfo Component on Profile Page. 
 \end{itemize}
 
-\section{Course}
-A Course class is able to aggregate all of the information and student created objects that are associated with a particular course. Created objects include all of the CourseItem objects associated with the Course and a single Chat object to be used as the general chat for the Course.
-\subsection{Responsibilities}
+\subsection{Component Design Detail Description}
+\subsubsection{Design for User Login in}
 \begin{itemize}
-	\item Presenting to the user all CourseItem objects that have been added to the course from all Students 
-	\item Presenting the Chat object for the course to allow communication between the Student and all other Students with the chat object
-	\item Querying any updates to the Course objects and updating the CourseItem and Chat objects
+	\item Input: User Name; User Password
+	\item Output: Whether the user log in successfully
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{diagrams/login.png}
+	\caption{Logical Flow for User Log in}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & Post\\
+        \hline
+	    Service Routing &  http://[host]:6060/user/login\\
+        \hline
+	    Params & \makecell[l]{Params1: user name;\\ Params2: user password;\\ Params3: request}\\ 
+        \hline
+        Params Type & \makecell[l]{user name: String;\\user password:String;\\ request: HttpServletRequest}\\
+        \hline
+        Description & Check if the user's password is right according to the input user name and password.\\
+        \hline
+        Return Type & Json.\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User has registered before.
+\end{enumerate} 
 \end{itemize}
 
-\section{CourseItem}
-A Course Item class is a reference to an assignment, exam, URL, or other document relevant to the course. The object in code will serve as a container and mainly server metadata information, while the document itself will be stored in the database. The CourseItem is a created object that is created by a user in the Student class and will be shared through a Course’s chat object and always accessible on the sidebar. The user who created the CourseItem object will be able to later modify or delete the object.
-\subsection{Responsibilities}
+\subsubsection{Design for User Register}
 \begin{itemize}
-	\item Display to the user the name and description of the courseItem
-	\item Allow the creator of the courseItem to modify or delete the courseItem
-	\item Query any updates to the courseItem and update the courseItem accordingly
-	\item Provide a download option so that a Student can download the contents of a course item
+	\item Input: \\
+	\begin{enumerate}
+		\item User Name : Got by HttpRequest (compulsory)
+		\item User Password: Got by HttpRequest (compulsory)
+		\item Email Address: Got by HttpRequest (compulsory)
+		\item Phone Number: Got by HttpRequest (compulsory)
+	\end{enumerate}
+	\item Output: Whether the user register successfully
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{diagrams/register.png}
+	\caption{Logical Flow for User Register}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & Post\\
+        \hline
+	    Service Routing &  http://[host]:6060/user/register\\
+        \hline
+	    Params & \makecell[l]{Params1: user name;\\ Params2: user password;\\ Params3: phone;\\Params4: email}\\ 
+        \hline
+        Params Type & \makecell[l]{user name: String;\\user password:String;\\ phone: String;\\email: String}\\
+        \hline
+        Description & Help the user register iSport.\\
+        \hline
+        Return Type & Json.\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User has related information to register iSport.
+\end{enumerate} 
 \end{itemize}
 
-\section{Chat}
-A chat is created for each Course and for each CourseItem. Chats are not created by or associated with users in any way, they are only automatically created/exist alongside existing Courses and CourseItems.
-\subsection{Responsibilities}
+\subsubsection{Design for User Check Personal Information}
 \begin{itemize}
-	\item Tracking and recording to the database new messages in the chat. Messages are written to the database immediately (are not written to a buffer/flushed).
-	\item Notifying the client of changes when the client checks (asks) whether any changes (new messages) have occurred.
-	\item Providing specific messages upon request.
-	\item Caching messages as they are accessed to reduce read operations on the database.
-	\item Displaying active and offline users of chat channel
+	\item Input: null
+	\item Output: User's profile page
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{diagrams/checkuserinfo.png}
+	\caption{Logical Flow for User Checking Info}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & GET\\
+        \hline
+	    Service Routing &  http://[host]:6060/{userName}/info\\
+        \hline
+	    Params & \makecell[l]{Params1: user name}\\ 
+        \hline
+        Params Type & \makecell[l]{user name: String}\\
+        \hline
+        Description & Get user's information and show on the profile page.\\
+        \hline
+        Return Type & Json.\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User has personal information stored in database.
+\end{enumerate} 
 \end{itemize}
+
+\subsubsection{Design for User Update Personal Information}
+\begin{itemize}
+	\item Input: 
+	\begin{enumerate}
+		\item user name
+		\item user password
+		\item email
+		\item phone
+	\end{enumerate}
+	\item Output: User's profile page
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{diagrams/updateinfo.png}
+	\caption{Logical Flow for User Updating Info}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & GET\\
+        \hline
+	    Service Routing &  http://[host]:6060/{userId}/updateInfo\\
+        \hline
+	    Params & \makecell[l]{Params1: user id;\\Params2: user name;\\Params3: email;\\Params4: tel;\\Params5: password}\\ 
+        \hline
+        Params Type & \makecell[l]{user id: Integer;\\user name: String;\\email: String;\\tel: String\\password: String}\\
+        \hline
+        Description & Update user's information and refresh the profile page.\\
+        \hline
+        Return Type & Json.\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User has personal information stored in database.
+	\item User provide valid new personal information.
+\end{enumerate} 
+\end{itemize}
+
+%\section{Course}
+%A Course class is able to aggregate all of the information and student created objects that are associated with a particular course. Created objects include all of the CourseItem objects associated with the Course and a single Chat object to be used as the general chat for the Course.
+%\subsection{Responsibilities}
+%\begin{itemize}
+%	\item Presenting to the user all CourseItem objects that have been added to the course from all Students 
+%	\item Presenting the Chat object for the course to allow communication between the Student and all other Students with the chat object
+%	\item Querying any updates to the Course objects and updating the CourseItem and Chat objects
+%\end{itemize}
+%
+%
+%
+%\section{CourseItem}
+%A Course Item class is a reference to an assignment, exam, URL, or other document relevant to the course. The object in code will serve as a container and mainly server metadata information, while the document itself will be stored in the database. The CourseItem is a created object that is created by a user in the Student class and will be shared through a Course’s chat object and always accessible on the sidebar. The user who created the CourseItem object will be able to later modify or delete the object.
+%\subsection{Responsibilities}
+%\begin{itemize}
+%	\item Display to the user the name and description of the courseItem
+%	\item Allow the creator of the courseItem to modify or delete the courseItem
+%	\item Query any updates to the courseItem and update the courseItem accordingly
+%	\item Provide a download option so that a Student can download the contents of a course item
+%\end{itemize}
+%
+%\section{Chat}
+%A chat is created for each Course and for each CourseItem. Chats are not created by or associated with users in any way, they are only automatically created/exist alongside existing Courses and CourseItems.
+%\subsection{Responsibilities}
+%\begin{itemize}
+%	\item Tracking and recording to the database new messages in the chat. Messages are written to the database immediately (are not written to a buffer/flushed).
+%	\item Notifying the client of changes when the client checks (asks) whether any changes (new messages) have occurred.
+%	\item Providing specific messages upon request.
+%	\item Caching messages as they are accessed to reduce read operations on the database.
+%	\item Displaying active and offline users of chat channel
+%\end{itemize}
 %%%%%%%%%%%%%%%%%%%%
 % CLASS INTERFACES %
 %%%%%%%%%%%%%%%%%%%%
