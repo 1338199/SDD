@@ -796,6 +796,75 @@ null
 	\end{enumerate}
 \end{enumerate}
 
+\subsection{Class User}
+\subsubsection{Attribute Description}
+\begin{itemize}
+	\item id: Integer, every user has a unique id.
+	\item password: String, password for every user.
+	\item name: String, account name for the user.
+	\item phone: String, phone number of the user.
+	\item email: String, email of the user.
+	\item status: String, status of the user. Check the if the user is an administration.
+\end{itemize}
+\subsubsection{Methods Description}
+\begin{enumerate}
+	\item User(Integer id, String password, String name, String phone, String email, String status): User
+	\begin{enumerate}
+		\item Parameters: Integer id, String password, String name, String phone, String email, String status
+		\item Return Type: User
+		\item Function: Construction function for class user
+		\item Detail Description: Initialize the attributes of class user.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.\textwidth]{diagrams/userfunc.png}\\
+\end{figure}
+	\end{enumerate}
+	\item getId():Integer 
+	\begin{enumerate}
+		\item Parameters: null
+		\item Return Type: Integer
+		\item Function: Return the id of the user.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{diagrams/getid.png}\\
+\end{figure}
+	\end{enumerate}
+	\item setId(Integer id): void
+	\begin{enumerate}
+		\item Parameters: Integer id
+		\item Return Type: void
+		\item Function: Set the id of the user.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{diagrams/setid.png}\\
+\end{figure}
+\end{enumerate}
+	\item getName
+	\begin{enumerate}
+		\item Parameters: null
+		\item Return Type: String
+		\item Function: Return the account name of the user.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{diagrams/getname.png}\\
+\end{figure}
+\end{enumerate}
+	\item setName(String name):void
+	\begin{enumerate}
+		\item Parameters: String name
+		\item Return Type: void
+		\item Function: Set the account name of the user.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.\textwidth]{diagrams/setname.png}\\
+\end{figure}
+	\end{enumerate}
+\end{enumerate}
 
 
  
