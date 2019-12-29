@@ -632,6 +632,64 @@ Users who use the platform for the first time need to register first. After succ
 \end{enumerate} 
 \end{itemize}
 
+\section{Component:User Postures Detection}
+\subsection{Component Description}
+When the user start to exercise, he/she have to stand before the camera and Detection component will open the camera and show the user's posture video in real time. \\
+
+\noindent And then this component will get the user's key points positions by using PoseNet, and draw the user's skeleton according to theses key points.\\
+
+\noindent The call relationship between classes is shown in the figure below:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{diagrams/detection.png}
+	\caption{Class Diagram of Detection Component}
+\end{figure}
+\subsection{Responsibilities}
+\begin{itemize}
+	\item Set up the camera, record and show user's video.
+	\item Get user posture key points and draw the skeleton. 
+\end{itemize}
+
+\subsection{Component Design Detail Description}
+\subsubsection{Design for Video, KeyPoints Reading and Playing}
+\begin{itemize}
+	\item Input: null
+	\item Output: User's video
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.2\textwidth]{diagrams/video.png}
+	\caption{Logical Flow for Video Setup and KeyPoints Reading}
+\end{figure}
+	\item Function Design
+	\begin{center}
+    \begin{tabular}{p{6cm}p{10cm}}
+        
+        \hline
+	    setupCamera & \makecell[l]{Params: null;\\Return Type:async function;\\Function: Apply authority to user camera.}\\ 
+        \hline
+        loadVideo & \makecell[l]{Params: null;\\Return Type:async function;\\Function: Apply authority to user camera.}\\ 
+        \hline
+        detectionPoseInRealTime & \makecell[l]{Params: video;\\Return Type: async function;\\Function:play the user video}\\
+        \hline
+        bindPage &  \makecell[l]{Params: null\\Return Type: async function;\\Function:load the poseNet model}\\
+        \hline
+        PoseDetectionFrame & \makecell[l]{Params: null\\Return Type: async function;\\Function:use the poseNet model to detect \\every frame's keypoints}\\
+        \hline
+        drawKeyPoints & \makecell[l]{Params: keypoints\\Return Type: void;\\Function:to draw the keypoints which \\PosetNet read}\\
+        \hline
+        drawSkeleton & \makecell[l]{Params: keypoints\\Return Type: void;\\Function:to draw the skeleton according to \\the keypoints}\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User has logged in.
+	\item The camera works well.
+\end{enumerate} 
+\end{itemize}
+
+
 %\section{Course}
 %A Course class is able to aggregate all of the information and student created objects that are associated with a particular course. Created objects include all of the CourseItem objects associated with the Course and a single Chat object to be used as the general chat for the Course.
 %\subsection{Responsibilities}
