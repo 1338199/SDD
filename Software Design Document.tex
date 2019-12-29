@@ -727,158 +727,78 @@ When the user start to exercise, he/she have to stand before the camera and Dete
 
 \chapter{Class Interfaces}
 
-\section{Class Student}
-An instance of Student represents a user who can create CourseItems and Courses. A student is also able to upload Documents attached to a CourseItem.
+\section{Classes of User Info Management Component}
 
-\subsection{Public Constructor Student}
-\textit{Student(String name, String id, Time lastLogin)} \\
-Creates a student object containing the name and Case ID.
+\subsection{Class UserController}
+\subsubsection{Attribute Description}
+null
+\subsubsection{Methods Description}
+\begin{enumerate}
+	\item getUserName(userId): String
+	\begin{enumerate}
+		\item Parameters: Integer userId
+		\item Return Type: String
+		\item Function: According to the input userId, check if the userId exists, if userId doesn't exist output "Id don't exist", otherwise，return the name of the user with the corresponding id.
+		\item Detail Description: To find the user name with corresponding userId in table user of the database.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{diagrams/getusername1.png}\\
+\end{figure}
+	\end{enumerate}
+	\item getUserInfo(userName): User
+	\begin{enumerate}
+		\item Parameters: String userName
+		\item Return Type: User
+		\item Function: According to the input userName, check if the userName exists and return the corresponding user info.
+		\item Detail Description: To find the user info(name, phone, email, status) with corresponding userName in table user of the database.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/getuserinfo.png}\\
+\end{figure}
+	\end{enumerate}
+	\item register
+	\begin{enumerate}
+		\item Parameters: userName, password, phone, email
+		\item Return Type: String
+		\item Function: Register an account for user, and store the user info in database. But check if there is already a same user name first.
+		\item Detail Description: To store the user info(name, phone, email, status) in database.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{diagrams/registerfunc.png}\\
+\end{figure}
+\end{enumerate}
+	\item login
+	\begin{enumerate}
+		\item Parameters: userName, password
+		\item Return Type: String
+		\item Function: According to the input userName and password check if the user can login iSport successfully.
+		\item Detail Description: Find the record in table user with corresponding userName and password.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{diagrams/loginfunc.png}\\
+\end{figure}
+\end{enumerate}
+	\item updateUserInfo
+	\begin{enumerate}
+		\item Parameters: userId, userName, email, tel, password
+		\item Return Type: String
+		\item Function: According to the input user info to update the user's information.
+		\item Detail Description: Find the record in table user with corresponding userId and update the related info.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.\textwidth]{diagrams/updateinfofunc.png}\\
+\end{figure}
+	\end{enumerate}
+\end{enumerate}
 
-\subsection{Public Method GetStudentID}
-\textit{String GetStudentID()} \\
-Returns the Case ID of the user.
 
-\subsection{Public Method GetDurationOfSession}
-\textit{Time GetDurationOfSession()} \\
-Returns the length of the current login session of the user.
 
-\subsection{Public Method IsSessionExpired}
-\textit{Boolean IsSessionExpired()} \\
-Returns whether the the current login session is expired.
-
-\subsection{Public Method CreateCourseItem}
-\textit{Boolean CreateCourseItem(dict options, Course course)} \\
-Creates an instance of a CourseItem and returns whether it was successfully made.
-
-\subsection{Public Static Method CreateCourse}
-\textit{Boolean CreateCourse(String courseID, String CourseName)} \\
-Creates an instance of a Course and returns whether it was	 successfully made.
-
-\subsection{Public Method GetEnrolledCourses}
-\textit{List<Course> GetEnrolledCourses()} \\
-Returns the list of courses a student is currently enrolled in on the application.
-
-\subsection{Public Method JoinCourse}
-\textit{Boolean JoinCourse(Course course)} \\
-Returns whether a student successfully joined to a preexisting course.
-
-\section{Class Course}
-
-\subsection{Public Constructor Course}
-\textit{Course(String courseID)} \\
-Creates a Course object from the supplied courseID. Populates private fields with items from the database queried using courseID.
-
-\subsection{Public Method GetStudents}
-\textit{List<Student> GetStudents()} \\
-Queries the students table of the database to see which students have added this course to their list of courses.
-
-\subsection{Public Method GetCourseItems}
-\textit{List<CourseItem> GetCourseItems()} \\
-Queries the database to return a list of all CourseItems associated with the course.
-
-\subsection{Public Method GetChat}
-\textit{Chat GetChat()} \\
-Returns the instance of the Chat class associated with the Course.
-
-\section{Class CourseItem}
-An object created by a student that can contain a document relevant to the course. This object is associated with a Course object.
-
-\subsection{Public Method RemoveCourseItem}
-\textit{Boolean RemoveCourseItem()} \\
-Removes the CourseItem from the database, so that it is no longer available to Students.
-
-\subsection{Public Method ModifyCourseItem}
-\textit{Boolean ModifyCourseItem(Document document)} \\
-Adds the document to the already existing CourseItem.
-
-\section{Class Document}
-
-\subsection{Public Constructor Document}
-\textit{Course(Integer documentID} \\
-Creates a Document object associated with the specified document ID. This ID is used to query the database to locate the actual file associated with it.
-
-\subsection{Public Method Download}
-\textit{Void Download()} \\
-Outputs the binary data for the document along with the proper HTTP header (application/octet-stream) to tell the browser to download the file instead of display it.
-
-\subsection{Public Method GetCourseItemID}
-\textit{String GetCourseItemID()} \\
-Returns the unique id associated with the course item.
-
-\section{Class Chat}
-Represents the chat for a course. The Chat object will hold all ChatMessage objects for a course.
-
-\subsection{Public Constructor Chat}
-\textit{Chat(String courseID)} \\
-Creates a Chat object from the supplied courseID. Populates private fields with items from the database queried using courseID. Since there is one chat per course it is ok to use the courseID as a lookup for Courses as well as Chats.
-
-\subsection{Public Method GetChatVersion}
-\textit{Integer GetChatVersion()} \\
-Returns what number message the chat has currently advanced to. This is cached whenever possible and queried often by the user to know when to request updates.
-
-\subsection{Public Method GetChatMessages}
-\textit{List<ChatMessage> GetChatMessages(Integer number = 50)} \\
-Returns that last \textit{number} chat messages associated with this chat (default 50).
-
-\subsection{Public Method SendMessage}
-\textit{Void SendMessage(String content, Student author)} \\
-Creates a ChatMessage object with a string content and sends it to the chat.
-
-\subsection{Public Method SendDocument}
-\textit{Void SendDocument(Document doc, Student author)} \\
-Creates a ChatMessage object with a document attached and sends it to the chat.
-
-\section{Class ChatMessage}
-Represents a single message sent in a Chat. This message can be text or a document.
-
-\subsection{Public Constructor ChatMessage}
-\textit{Chat(String courseID)} \\
-Creates a ChatMessage object associated with the courseID.
-
-\subsection{Public Enum MessageType}
-\textit{} \\
-Indicates the chat message type. Currently can be:
-\begin{itemize}
-	\item Text
-	\item Document
-	\item Image
-\end{itemize}
-
-\subsection{Public Method GetType}
-\textit{MessageType GetType()} \\
-Returns the type of the message.
-
-\subsection{Public Method GetContent}
-\textit{Void GetContent()} \\
-Returns the content associated with the ChatMessage.
-
-\subsection{Private Method GetText}
-\textit{String GetText()} \\
-Returns the text associated with this ChatMessage
-
-\subsection{Private Method GetURL}
-\textit{String GetURL()} \\
-Returns the URL associated with this ChatMessage.
-
-\subsection{Public Method GetStudent}
-\textit{Student GetStudent()} \\
-Returns the Student who created the ChatMessage object.
-
-\subsection{Public Method GetTime}
-\textit{Time GetTime()} \\
-Returns the time the ChatMessage object was sent.
-
-\subsection{Public Method Delete}
-\textit{Void Delete()} \\
-Removes the ChatMessage object from the database. This object will no longer be shown in the Chat object class.
-
-\subsection{Public Method GetActiveUsers}
-\textit{List<Student> GetActiveUsers()} \\
-Returns all the active users in the current chat. 
-
-\subsection{Public Method GetAllUsers}
-\textit{List<Student> GetAllUsers()} \\
-Returns all users currently subscribed to a chat. 
+ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % HUMAN INTERFACE DESIGN %
