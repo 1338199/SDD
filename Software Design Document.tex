@@ -467,7 +467,21 @@ We present a component level design for iSport System and each subsystem.\\
   \caption{User Posture Detection Component Overview}
 \end{figure}
 
+\section{System Navigation Design}
+To combine these components, we design a navigation structure for iSport. And provide a overall navigation design for such a webApp as iSport. \\
 
+\noindent When the user first enter iSport's host website, he/she has to register his/her information by UserInfoComponent, after registering, they can login to the introduction page.\\
+
+\noindent At introduction page, users can view keep/rehabilitation courses through CoursesComponent. Through this component, they can view comments, add/delete their favorite course, view recommend courses too.\\
+
+\noindent When course starts, user can observe their exercising video in real time with a skeleton drawn by DetectionComponent. Meanwhile, ComparisonComponent and CorrectionComponent will judge their performance and provide suggestion.\\
+
+\noindent Every time after course, users can check their exercising report provided by AppraisalComponent.  
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{diagrams/navigation.png}
+  \caption{System Navigation Design}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%
 % PRINCIPAL Components %
 %%%%%%%%%%%%%%%%%%%%%
