@@ -256,10 +256,10 @@ Show a list of recommended courses for the user by user's previous behavior \\
 Show the comment and evaluation of each courses in their detailed page\\
 
  
-Provide the add button for user to add a course he/she want to learn in the future and add the course to his/her courses list.\\
+Provide the add button for user to add a course he/she want to learn in the future and add the course to his/her course list.\\
 
  
-Provide the delete button for user to remove a course he/she doesn't want to learn and remove the course from his/her courses list.\\
+Provide the delete button for user to remove a course he/she doesn't want to learn and remove the course from his/her course list.\\
 
 
 Generate user's exercise report for watching and analyzing in the report page\\
@@ -689,6 +689,276 @@ When the user start to exercise, he/she have to stand before the camera and Dete
 \end{enumerate} 
 \end{itemize}
 
+
+\section{Component:Course Management}
+\subsection{Component Description}
+This component is aiming at helping user to manage their courses, including viewing and choosing courses, add courses to user's courses and delete course from their own courses. System administrator also need this component to add new course to the database.\\
+
+\noindent User is able to view all the fitness courses and rehabilitation courses in each course showing page, and the recommend course in recommend course page. When user is in these pages, they can click the "add course" button to add the course they are desired to learn to their user's courses. And they can view their own courses in user's course page. When user is in the user's course page, they can click "delete this course" button to delete the course from their learning courses.\\
+
+\noindent When the system administrator is in the courses managing page, he can click the "add new course" button to add a new course to the database.\\
+
+\noindent All of the behaviors need to interact with the user or course database to get, modify, add, delete the related data. The call relationship between above classes is shown in the figure below:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{diagrams/course-module-diagram.png}
+	\caption{Class Diagram of course management Component}
+\end{figure}
+\subsection{Responsibilities}
+\begin{itemize}
+	\item User can add a specific course to their course list through Course Management Component.
+	\item User can delete a specific course from their course list through Course Management Component.
+	\item User can view their course list through Course Management Component on user's courses page.
+	\item User can view their recommend courses through Course Management Component on the recommend courses page.
+	\item User can view all the fitness courses through Course Management Component on the fitness courses page.
+	\item User can view all the rehabilitation courses through Course Management Component on the rehabilitation courses page.
+	\item System Administrator can add a courses to the database through Course Management Component on the admin profile page.
+\end{itemize}
+
+\subsection{Component Design Detail Description}
+\subsubsection{Design for user add course}
+\begin{itemize}
+	\item Input: User ID, course ID; 
+	\item Output: Whether the user add the course successfully
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{diagrams/user-add-course.jpg}
+	\caption{Logical Flow for User Add Course}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & Post\\
+        \hline
+	    Service Routing &  http://[host]:6060/addCourse\\
+        \hline
+	    Params & \makecell[l]{Params1: user id;\\ Params2: course id;}\\ 
+        \hline
+        Params Type & \makecell[l]{user id: Integer;\\course id:Integer;}\\
+        \hline
+        Description & Check if the user id and course id is exist, then add the course id to the user's course list\\
+        \hline
+        Return Type & String\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User id or course id is not in the database
+	\item The course is already in user's course list
+\end{enumerate} 
+\end{itemize}
+
+\subsubsection{Design for user delete course}
+\begin{itemize}
+	\item Input: User ID, course ID; 
+	\item Output: Whether the user delete the course successfully
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{diagrams/user-remove-course.jpg}
+	\caption{Logical Flow for User Remove Course}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & Post\\
+        \hline
+	    Service Routing &  http://[host]:6060/user/{id}/courses/{courseId}\\
+        \hline
+	    Params & \makecell[l]{Params1: user id;\\ Params2: course id;}\\ 
+        \hline
+        Params Type & \makecell[l]{user id: Integer;\\course id:Integer;}\\
+        \hline
+        Description & Check if the user id and course id is exist, then delete the course id from the user's course list\\
+        \hline
+        Return Type & String\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User id or course id is not in the database
+	\item The course is not in user's course list
+\end{enumerate} 
+\end{itemize}
+
+\subsubsection{Design for user view user's course}
+\begin{itemize}
+	\item Input: User ID; 
+	\item Output: user's course list in JSON format
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{diagrams/mycourse.jpg}
+	\caption{Logical Flow for User View User's Course}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & GET\\
+        \hline
+	    Service Routing &  http://[host]:6060/user/{id}/{type}/courses\\
+        \hline
+	    Params & \makecell[l]{Params1: user id;\\ Params2: course type;}\\ 
+        \hline
+        Params Type & \makecell[l]{user id: Integer;\\course type: String;}\\
+        \hline
+        Description & Check if the user id is exist, then show the user's course list sorted by type\\
+        \hline
+        Return Type & JSON\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User id is not in the database
+	\item The user's course list is empty
+\end{enumerate} 
+\end{itemize}
+
+\subsubsection{Design for user view recommend courses}
+\begin{itemize}
+	\item Input: User ID; 
+	\item Output: user's recommend course list in JSON format
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{diagrams/recommend.jpg}
+	\caption{Logical Flow for User View Recommend Courses}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & GET\\
+        \hline
+	    Service Routing &  http://[host]:6060/user/{id}/recommend\\
+        \hline
+	    Params & \makecell[l]{Params1: user id;}\\ 
+        \hline
+        Params Type & \makecell[l]{user id: Integer;}\\
+        \hline
+        Description & Check if the user id is exist, then show the user's recommend course list\\
+        \hline
+        Return Type & JSON\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item User id is not in the database
+	\item The user has chose all the courses
+\end{enumerate} 
+\end{itemize}
+
+
+\subsubsection{Design for user view fitness courses}
+\begin{itemize}
+	\item Input: None; 
+	\item Output: All the fitness course list in JSON format
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{diagrams/fitness-courses.jpg}
+	\caption{Logical Flow for User View Fitness Courses}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & Post\\
+        \hline
+	    Service Routing &  http://[host]:6060/courses\\
+        \hline
+	    Params & \makecell[l]{Params1: course type("fitness");}\\ 
+        \hline
+        Params Type & \makecell[l]{course type: String;}\\
+        \hline
+        Description & Show the fitness course list\\
+        \hline
+        Return Type & JSON\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item No fitness courses in the database
+\end{enumerate} 
+\end{itemize}
+
+\subsubsection{Design for user view rehabilitation courses}
+\begin{itemize}
+	\item Input: None; 
+	\item Output: All the rehabilitation course list in JSON format
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{diagrams/rehabilitation-courses.jpg}
+	\caption{Logical Flow for User View Rehabilitation Courses}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & Post\\
+        \hline
+	    Service Routing &  http://[host]:6060/courses\\
+        \hline
+	    Params & \makecell[l]{Params1: course type("rehabilitation");}\\ 
+        \hline
+        Params Type & \makecell[l]{course type: String;}\\
+        \hline
+        Description & Show the rehabilitation course list\\
+        \hline
+        Return Type & JSON\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item No rehabilitation courses in the database
+\end{enumerate} 
+\end{itemize}
+
+\subsubsection{Design for administrator add new course}
+\begin{itemize}
+	\item Input: Course information in JSON format; 
+	\item Output: Whether the administrator add the course successfully
+	\item Logical Flow:
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{diagrams/admin-add-course.jpg}
+	\caption{Logical Flow for Admin add Courses}
+\end{figure}
+	\item Interface Design
+	\begin{center}
+    \begin{tabular}{p{5cm}p{10cm}}
+        \hline
+	    Request Method & Post\\
+        \hline
+	    Service Routing &  http://[host]:6060/uploadCourse\\
+        \hline
+	    Params & \makecell[l]{Params1: course id;\\Params2: course name;\\Params3: course videos;\\Params4: course intro;\\Params5: course cover;\\ }\\ 
+        \hline
+        Params Type & \makecell[l]{course id: Integer;\\course name: String;\\course type: String;\\course videos: []Bytes;\\course intro: String;\\course cover: []Bytes;\\}\\
+        \hline
+        Description & Add a course to the database\\
+        \hline
+        Return Type & String\\
+        \hline
+    \end{tabular}
+\end{center}
+\item Restriction and Error Handling\\
+\begin{enumerate}
+	\item Attribution is in wrong format
+	\item Course id is already in the database
+\end{enumerate} 
+\end{itemize}
 
 %\section{Course}
 %A Course class is able to aggregate all of the information and student created objects that are associated with a particular course. Created objects include all of the CourseItem objects associated with the Course and a single Chat object to be used as the general chat for the Course.
