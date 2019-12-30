@@ -441,21 +441,47 @@ In addition to test their posture and attend into courses, members are also allo
   \label{fig:SDD_1}
 \end{figure}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[page=3,width=0.9\textwidth]{diagrams/SDD_Diagrams.pdf}
-  \label{fig:SDD_1}
-\end{figure}
+
 
 \section{Description of Achitecture Goals}
 The Class Collaboration Application will be hosted by the Google App Engine and users will access the app via a web browser. The app will have access to a database containing lists of all the Courses created for the app, corresponding CourseItems, Documents, and Chatmessages, as well as the Students who have created accounts. The database will save the information for an indefinite amount of time. Our class structures and main use cases by users are shown below. 
 
-\section{Design Rationale}
-\hspace{10mm}We have decided to use Google App Engine because it is a reliable platform to scale and build web applications. Many web applications are maintained either through IaaS or PaaS. We decided not to use Iaas because, although we can have root access to a VM, we would have to be responsible for managing the resources on the machine including, memory and CPU usage. Since Google App Engine is a PaaS, it manages all of our computational resources for us, so our only responsibility is maintaining the application while Google App Engine would take care of the infrastructure, security and scalability of the Class Collaboration Application. 
+\section{System Components Overview}
+We present a component level design for iSport System and each subsystem.\\
 
-\hspace{10mm}For each user, we decided to integrate SSO into our application. Using SSO as a way for users to sign into the application through their Case credentials boosts our security capabilities as well as mitigates the risk of 3rd party applications accessing sensitive information about the user. This also improves user experience since the user does not have to create and keep track of another username and password. 
+\noindent For example as a subsystem of iSport, Component User Info Management has four main function: register, login, show userinfo, update userinfo, and we can detail these four function into more specific components including: validation checking, user data reading and so on. Sub components of each subsystem is structured as hierarchical relationship.\\
 
+\noindent More detail designs of each subsystem and components will be specified in next chapter.
+ 
+\subsection{User Info Management Component Overview} 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{diagrams/userinfocom.png}
+  \caption{User Info Management Component Overview}
+\end{figure}
 
+\subsection{User Posture Detection Component Overview}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.505\textwidth]{diagrams/detection-com.png}
+  \caption{User Posture Detection Component Overview}
+\end{figure}
+
+\section{System Navigation Design}
+To combine these components, we design a navigation structure for iSport. And provide a overall navigation design for such a webApp as iSport. \\
+
+\noindent When the user first enter iSport's host website, he/she has to register his/her information by UserInfoComponent, after registering, they can login to the introduction page.\\
+
+\noindent At introduction page, users can view keep/rehabilitation courses through CoursesComponent. Through this component, they can view comments, add/delete their favorite course, view recommend courses too.\\
+
+\noindent When course starts, user can observe their exercising video in real time with a skeleton drawn by DetectionComponent. Meanwhile, ComparisonComponent and CorrectionComponent will judge their performance and provide suggestion.\\
+
+\noindent Every time after course, users can check their exercising report provided by AppraisalComponent.  
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{diagrams/navigation.png}
+  \caption{System Navigation Design}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%
 % PRINCIPAL Components %
 %%%%%%%%%%%%%%%%%%%%%
@@ -997,7 +1023,7 @@ This component is aiming at helping user to manage their courses, including view
 
 \chapter{Class Interfaces}
 
-\section{Classes of User Info Management Component}
+\section{Main Classes of User Info Management Component}
 
 \subsection{Class UserController}
 \subsubsection{Attribute Description}
@@ -1146,8 +1172,63 @@ null
 \chapter{Human Interface Design}
 
 \section{Mockup of User Interface}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.72\textwidth]{diagrams/login_register.png}
+	\caption{Login and Register Page}
+\end{figure}
 
-\includegraphics[width=1.0\textwidth]{diagrams/UI_Mockup.png}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/profile.png}
+	\caption{Profile Page}
+\end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/mine.png}
+	\caption{My Courses Page}
+\end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/rebuild.png}
+	\caption{Recovering Courses Page}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/keep.png}
+	\caption{Exercise Courses Page}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/recommend.png}
+	\caption{Recommend Page}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/comment.png}
+	\caption{Comments Page}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/report.png}
+	\caption{Reports Page}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/arrange.png}
+	\caption{Arrangement Page}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/about-us.jpg}
+	\caption{Introduction Page}
+\end{figure}
 \end{document}
