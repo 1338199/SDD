@@ -471,7 +471,7 @@ We present a component level design for iSport System and each subsystem.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{diagrams/comparison.png}
-    \caption{Component Module Component Overview}
+    \caption{Comparison Module Component Overview}
 \end{figure}
 
 
@@ -1033,18 +1033,8 @@ When users follow the postures, the video data will be uploaded to our servers, 
         \includegraphics[width=0.4\textwidth]{diagrams/flow-comparison.png}
         \caption{Logical Flow For Comparison}
     \end{figure}
-\end{itemize}
-
-\subsubsection{Design for Updating Posture data}
-\begin{itemize}
-    \item Input: new standard posture data
-    \item Output: updating outcome
-    \item Logical Flow:
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.1\textwidth]{diagrams/flow-updatePosture.png}
-        \caption{Logical Flow For Updating}
-    \end{figure}
+    \item Interface Design: null, this part is fulfill with javascript
+    \item Restriction: user must login and take a course
 \end{itemize}
 
 \section{Component: Correction Module}
@@ -1300,6 +1290,71 @@ null
 \end{figure}
 	\end{enumerate}
 \end{enumerate}
+
+\subsection{Class Comparison}
+\subsubsection{Attribute Description}
+
+\subsubsection{Method Description}
+\begin{enumerate}
+    \item formatKeypoints(keypoints): Array
+        \begin{enumerate}
+            \item Parameters: keypoints
+            \item Return: newKeys
+            \item Function: sort keypoints by name
+            \item Detail Description: format keypoints, and sort keypoints by name
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-0.jpg}\\
+                \end{figure}
+        \end{enumerate}
+
+    \item PoseVector(keypoints, boudingBoxpoints):PoseVector
+        \begin{enumerate}
+            \item Parameters: keypoints, boudingBoxpoints
+            \item Return: PoseVector
+            \item Function: the vector with the same proportion regulate the final comparison
+            \item Detail Description: zoom pose vector to the same proportion
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-1.jpg}\\
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-2.jpg}\\
+                \end{figure}
+        \end{enumerate}
+
+    \item weightedDistanceMatching(poseVector1, poseVector2): Number
+        \begin{enumerate}
+            \item Parameters: poseVector1, poseVector2
+            \item Return: summation1 * summation2
+            \item Function: get similarity distance
+            \item Detail Description: calculate similarity distance with weight
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-3.jpg}\\
+                \end{figure}
+        \end{enumerate}
+
+    \item showResult(poseVector, imageVector, isVideo)
+        \begin{enumerate}
+            \item Parameters: poseVector, imageVector, isVideo
+            \item Return: 
+            \item Function: show comparison result
+            \item Detail Description: if accurate, show green, if relatively accurate, show blue, if not accurate, show red
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-4.jpg}\\
+                \end{figure}
+        \end{enumerate}
+\end{enumerate}
+
+
 
 
  
