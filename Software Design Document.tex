@@ -470,7 +470,7 @@ We present a component level design for iSport System and each subsystem.\\
 \subsection{Comparison Module Component Overview}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{diagrams/comparison.png}
+    \includegraphics[width=0.4\textwidth]{diagrams/comparison.png}
     \caption{Component Module Component Overview}
 \end{figure}
 
@@ -485,7 +485,7 @@ We present a component level design for iSport System and each subsystem.\\
 \subsection{Appraisal Module Component Overview}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{diagrams/appraisal.png}
+    \includegraphics[width=0.6\textwidth]{diagrams/appraisal.png}
     \caption{Appraisal Module Component Overview}
 \end{figure}
 
@@ -1006,6 +1006,123 @@ This component is aiming at helping user to manage their courses, including view
 	\item Attribution is in wrong format
 	\item Course id is already in the database
 \end{enumerate} 
+\end{itemize}
+
+\section{Component: Posture Comparison Module}
+\subsection{Component Description}
+The main part of this Web Service is our service correcting the posture of user’. So the posture comparison is one of the key module. \\ 
+When user take a course and start following the guide, the data collected by camera is uploaded and analyzed, then give the outcome to user.\\ 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{diagrams/class-comparison.png}
+	\caption{Class Diagram of Posture Comparison Component}
+\end{figure}
+
+\subsection{Responsibilities}
+When users follow the postures, the video data will be uploaded to our servers, the backend compare the uploaded data with data in the database, and give the outcome to users.
+
+\subsection{Component Design Detail Description}
+\subsubsection{Design for Comparison}
+\begin{itemize}
+    \item Input: user posture data
+    \item Output: comparison outcome
+    \item Logical Flow:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{diagrams/flow-comparison.png}
+        \caption{Logical Flow For Comparison}
+    \end{figure}
+\end{itemize}
+
+\subsubsection{Design for Updating Posture data}
+\begin{itemize}
+    \item Input: new standard posture data
+    \item Output: updating outcome
+    \item Logical Flow:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.1\textwidth]{diagrams/flow-updatePosture.png}
+        \caption{Logical Flow For Updating}
+    \end{figure}
+\end{itemize}
+
+\section{Component: Correction Module}
+\subsection{Component Description}
+When user get the outcome of comparison, he should follow the tips or advice in the browser, and correct his postures to match the right postures.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{diagrams/class-correction.png}
+	\caption{Class Diagram of Correction Component}
+\end{figure}
+
+\subsection{Responsibilities}
+The Wrong posture will show as red point in the browser, and users can see right postures in the guide video. Users also get some advice or tips in the browser.\\ 
+The Users should find the unmatched point or follow the guide and correct his posture until the comparison outcome shows there is no unmatched point.
+
+\subsection{Component Design Detail Description}
+\subsubsection{Design for Correction}
+\begin{itemize}
+    \item Logical Flow:
+    \item Output: advice or tips
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{diagrams/flow-corrcetion.png}
+        \caption{Logical Flow For Correction}
+    \end{figure}
+\end{itemize}
+
+\section{Component: Appraisal Module}
+\subsection{Component Description}
+The Appraisal includes many aspects, users can appraise the course, the course can also appraise the performance of users.\\
+The data of this module make it possible that platform and users benefit themselves.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{diagrams/class-appraisal.png}
+	\caption{Class Diagram of Appraisal Component}
+\end{figure}
+
+\subsection{Responsibilities}
+After user fulfill his course, he can appraise the course to inform other users whether this course is worthy.\\
+In the other hand, system will appraise the user’sperformance to inform user whether he did reaches the course's requirements.
+
+\subsection{Component Design Detail Description}
+\subsubsection{Design for Marking Course}
+\begin{itemize}
+    \item Input: the appraisal
+    \item Output: appraisal outcome
+    \item Logical Flow:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{diagrams/flow-appraisal.png}
+        \caption{Logical Flow For Marking Course}
+    \end{figure}
+\end{itemize}
+
+\subsubsection{Design for Viewing Mark}
+\begin{itemize}
+    \item Input: the course id
+    \item Output: the appraisal of this course
+    \item Logical Flow:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{diagrams/flow-ViewMark.png}
+        \caption{Logical Flow For Viewing Mark}
+    \end{figure}
+\end{itemize}
+
+\subsubsection{Design for Viewing Posture Report}
+\begin{itemize}
+    \item Input: the course id
+    \item Output: the report of this course
+    \item Logical Flow:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{diagrams/flow-ViewReport.png}
+        \caption{Logical Flow For Viewing Posture Report}
+    \end{figure}
 \end{itemize}
 
 %\section{Course}
