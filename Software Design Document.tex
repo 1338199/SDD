@@ -489,6 +489,13 @@ We present a component level design for iSport System and each subsystem.\\
     \caption{Appraisal Module Component Overview}
 \end{figure}
 
+\subsection{Course Management Component Overview}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{diagrams/course-management.png}
+    \caption{Course Management Component Overview}
+\end{figure}
+
 \section{System Navigation Design}
 To combine these components, we design a navigation structure for iSport. And provide a overall navigation design for such a webApp as iSport. \\
 
@@ -1183,6 +1190,176 @@ null
 \end{figure}
 	\end{enumerate}
 \end{enumerate}
+
+\section{Main Classes of Course Management Component}
+
+\subsection{ExercisesController}
+\subsubsection{Attribute Description}
+null
+\subsubsection{Methods Description}
+\begin{enumerate}
+	\item getAllCourses(type, [id]): CourseList
+	\begin{enumerate}
+		\item Parameters: String type, Integer id(Optional)
+		\item Return Type: CourseList[]
+		\item Function: Query the type or id given by the parameters from all courses, if the result is null, return "The course list is blank" , otherwise, return the result as a course list.
+		\item Detail Description: To find the courses with corresponding course type or id in table course of the database.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{diagrams/getAllCourses.png}\\
+\end{figure}
+	\end{enumerate}
+	
+	
+	\item getRecommendation(id): CourseList
+	\begin{enumerate}
+		\item Parameters: Integer userId
+		\item Return Type: CourseList[]
+		\item Function: According to the user's courses, generate and return recommend courses for the user to learn.
+		\item Detail Description: Find the user with corresponding userName in table user of the database, then find the courses that the user has chosen before, generate the recommend courses according by these courses and return the result.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diagrams/getRecommendation.png}\\
+\end{figure}
+	\end{enumerate}
+	\item getCourseFirstImage(id): Course
+	\begin{enumerate}
+		\item Parameters: Integer courseId
+		\item Return Type: Course
+		\item Function: According to the course id, find the course and the correspond image, return the course with a cover.
+		\item Detail Description: Find the course through the course id in course database and course image in image database, set the image as the course's cover and return the course with a cover.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{diagrams/getCourseFirstImage.png}\\
+\end{figure}
+\end{enumerate}
+	\item addCourse
+	\begin{enumerate}
+		\item Parameters: Integer userId, Integer courseId
+		\item Return Type: String
+		\item Function: According to the user id and course id, add the course to user's course list.
+		\item Detail Description: Find the user in table user with corresponding userId and the course in table course with corresponding course id, if the user has not chosen the course before, add the course id to the user's courses list and return OK", otherwise, return "This course already added".
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{diagrams/userAddCourse.png}\\
+\end{figure}
+\end{enumerate}
+	\item updateComments
+	\begin{enumerate}
+		\item Parameters: exerciseId, commentUser, comment
+		\item Return Type: Integer exerciseId, String commentUser, String comment
+		\item Function: According to the input exerciseId, commentUser and comment, update the comment of the course.
+		\item Detail Description: Find the course in table user with corresponding courseId and update the comment information by the given comment.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.\textwidth]{diagrams/updateComments.png}\\
+\end{figure}
+	\end{enumerate}
+\end{enumerate}
+
+
+\subsection{Class Exercises}
+\subsubsection{Attribute Description}
+\begin{itemize}
+	\item id: Integer, every exercise has a unique id.
+	\item description: String, the description of the exercise
+	\item title: String, the title of the exercise.
+	\item type: String, the type of the exercise.
+	\item image: Bytes, the cover of the user.
+\end{itemize}
+\subsubsection{Methods Description}
+\begin{enumerate}
+	\item Exercises(Integer id, String description, String title, String type): Exercise
+	\begin{enumerate}
+		\item Parameters: Integer id, String description, String title, String type
+		\item Return Type: Exercise
+		\item Function: Construction function for class exercise
+		\item Detail Description: Initialize the attributes of class exercise.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.\textwidth]{diagrams/exercisefunc.png}\\
+\end{figure}
+	\end{enumerate}
+	\item getId():Integer 
+	\begin{enumerate}
+		\item Parameters: null
+		\item Return Type: Integer
+		\item Function: Return the id of the exercise.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{diagrams/ex-getid.png}\\
+\end{figure}
+	\end{enumerate}
+	\item setId(Integer id): void
+	\begin{enumerate}
+		\item Parameters: Integer id
+		\item Return Type: void
+		\item Function: Set the id of the exercise.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{diagrams/ex-setid.png}\\
+\end{figure}
+\end{enumerate}
+
+	\item getDescription
+	\begin{enumerate}
+		\item Parameters: null
+		\item Return Type: String
+		\item Function: Return the description of the exercise.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{diagrams/ex-getdesc.png}\\
+\end{figure}
+\end{enumerate}
+
+	\item setName(String name):void
+	\begin{enumerate}
+		\item Parameters: String description
+		\item Return Type: void
+		\item Function: Set the description of the exercise.
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{diagrams/ex-setdesc.png}\\
+\end{figure}
+	\end{enumerate}
+	
+	\item getType():String
+	\begin{enumerate}
+		\item Parameters: null
+		\item Return Type: String
+		\item Function: Get the type of the exercise
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{diagrams/ex-gettype.png}\\
+\end{figure}
+	\end{enumerate}
+	
+		\item setType(String type): void
+	\begin{enumerate}
+		\item Parameters: String type
+		\item Return Type: void
+		\item Function: Set the type of the exercise
+		\item Implement:
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{diagrams/ex-settype.png}\\
+\end{figure}
+	\end{enumerate}
+	
+	
+\end{enumerate}
+
 
 
  
