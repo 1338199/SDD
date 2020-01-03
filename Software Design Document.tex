@@ -1081,7 +1081,7 @@ After user fulfill his course, he can appraise the course to inform other users 
 In the other hand, system will appraise the user’sperformance to inform user whether he did reaches the course's requirements.
 
 \subsection{Component Design Detail Description}
-\subsubsection{Design for Marking Course}
+\subsubsection{Design for Commenting Course}
 \begin{itemize}
     \item Input: the appraisal
     \item Output: appraisal outcome
@@ -1089,11 +1089,11 @@ In the other hand, system will appraise the user’sperformance to inform user w
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.2\textwidth]{diagrams/flow-appraisal.png}
-        \caption{Logical Flow For Marking Course}
+        \caption{Logical Flow For Commenting Course}
     \end{figure}
 \end{itemize}
 
-\subsubsection{Design for Viewing Mark}
+\subsubsection{Design for Viewing Comment}
 \begin{itemize}
     \item Input: the course id
     \item Output: the appraisal of this course
@@ -1101,8 +1101,22 @@ In the other hand, system will appraise the user’sperformance to inform user w
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.2\textwidth]{diagrams/flow-ViewMark.png}
-        \caption{Logical Flow For Viewing Mark}
+        \caption{Logical Flow For Viewing Comment}
     \end{figure}
+    \item Interface Design: 
+	\begin{center}
+        \begin{tabular}{p{5cm}p{10cm}}
+            \hline
+            Request Method & GET\\
+            \hline
+            Service Routing &  api/course\\
+            \hline
+            Description & Get detail course data or comment.\\
+            \hline
+            Return Type & Json.\\
+            \hline
+        \end{tabular}
+    \end{center}
 \end{itemize}
 
 \subsubsection{Design for Viewing Posture Report}
@@ -1388,6 +1402,29 @@ null
         \end{enumerate}
 \end{enumerate}
 
+\subsection{Class: Appraisal}
+\subsubsection{Attribute Description}
+
+\subsubsection{Method Description}
+\begin{enumerate}
+    \item getAllCourses(@RequestParam("type") String type, @RequestParam("id") int id ): ResultModel2
+        \begin{enumerate}
+            \item Parameters: type, id
+            \item Return ResultModel2
+            \item Function: get course and appraisal
+            \item Detail Description: get course and appraisal data from backend
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/appraisal-0.jpg}\\
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/appraisal-1.jpg}\\
+                \end{figure}
+        \end{enumerate}
+\end{enumerate}
 
 
 
