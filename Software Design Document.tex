@@ -1028,11 +1028,11 @@ When users follow the postures, the video data will be uploaded to our servers, 
     \item Input: user posture data
     \item Output: comparison outcome
     \item Logical Flow:
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.4\textwidth]{diagrams/flow-comparison.png}
-        \caption{Logical Flow For Comparison}
-    \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{diagrams/flow-comparison.png}
+            \caption{Logical Flow For Comparison}
+        \end{figure}
     \item Interface Design: null, this part is fulfill with javascript
     \item Restriction: user must login and take a course
 \end{itemize}
@@ -1056,11 +1056,13 @@ The Users should find the unmatched point or follow the guide and correct his po
 \begin{itemize}
     \item Logical Flow:
     \item Output: advice or tips
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.2\textwidth]{diagrams/flow-corrcetion.png}
-        \caption{Logical Flow For Correction}
-    \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.2\textwidth]{diagrams/flow-corrcetion.png}
+            \caption{Logical Flow For Correction}
+        \end{figure}
+    \item Interface Design: null, this part is fulfill with javascript
+    \item Restriction: user must login and take a course
 \end{itemize}
 
 \section{Component: Appraisal Module}
@@ -1350,6 +1352,38 @@ null
                 \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.6\textwidth]{diagrams/comparison-4.jpg}\\
+                \end{figure}
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Class: Correction}
+\subsubsection{Attribute Description}
+
+\subsubsection{Method Description}
+\begin{enumerate}
+    \item OnePartCorrection(poseVector1, poseVector2, standard): Bool
+        \begin{enumerate}
+            \item Parameters: poseVector1, poseVector2 standard
+            \item Return Bool
+            \item Function: check wrong one posture 
+            \item Detail Description: compare the posture and export comparison outcome
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/correction-0.jpg}\\
+                \end{figure}
+        \end{enumerate}
+
+    \item TwoPartCheck(poseVector1, poseVector2, standard): Bool
+        \begin{enumerate}
+            \item Parameters: poseVector1, poseVector2 standard
+            \item Return Bool
+            \item Function: check wrong posture more than one
+            \item Detail Description: compare the posture and export comparison outcome
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/correction-1.jpg}\\
                 \end{figure}
         \end{enumerate}
 \end{enumerate}
