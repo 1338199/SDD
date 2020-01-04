@@ -470,8 +470,8 @@ We present a component level design for iSport System and each subsystem.\\
 \subsection{Comparison Module Component Overview}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{diagrams/comparison.png}
-    \caption{Component Module Component Overview}
+    \includegraphics[width=0.4\textwidth]{diagrams/comparison.png}
+    \caption{Comparison Module Component Overview}
 \end{figure}
 
 
@@ -485,7 +485,7 @@ We present a component level design for iSport System and each subsystem.\\
 \subsection{Appraisal Module Component Overview}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{diagrams/appraisal.png}
+    \includegraphics[width=0.6\textwidth]{diagrams/appraisal.png}
     \caption{Appraisal Module Component Overview}
 \end{figure}
 
@@ -1015,6 +1015,129 @@ This component is aiming at helping user to manage their courses, including view
 \end{enumerate} 
 \end{itemize}
 
+\section{Component: Posture Comparison Module}
+\subsection{Component Description}
+The main part of this Web Service is our service correcting the posture of user’. So the posture comparison is one of the key module. \\ 
+When user take a course and start following the guide, the data collected by camera is uploaded and analyzed, then give the outcome to user.\\ 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{diagrams/class-comparison.png}
+	\caption{Class Diagram of Posture Comparison Component}
+\end{figure}
+
+\subsection{Responsibilities}
+When users follow the postures, the video data will be uploaded to our servers, the backend compare the uploaded data with data in the database, and give the outcome to users.
+
+\subsection{Component Design Detail Description}
+\subsubsection{Design for Comparison}
+\begin{itemize}
+    \item Input: user posture data
+    \item Output: comparison outcome
+    \item Logical Flow:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{diagrams/flow-comparison.png}
+            \caption{Logical Flow For Comparison}
+        \end{figure}
+    \item Interface Design: null, this part is fulfill with javascript
+    \item Restriction: user must login and take a course
+\end{itemize}
+
+\section{Component: Correction Module}
+\subsection{Component Description}
+When user get the outcome of comparison, he should follow the tips or advice in the browser, and correct his postures to match the right postures.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{diagrams/class-correction.png}
+	\caption{Class Diagram of Correction Component}
+\end{figure}
+
+\subsection{Responsibilities}
+The Wrong posture will show as red point in the browser, and users can see right postures in the guide video. Users also get some advice or tips in the browser.\\ 
+The Users should find the unmatched point or follow the guide and correct his posture until the comparison outcome shows there is no unmatched point.
+
+\subsection{Component Design Detail Description}
+\subsubsection{Design for Correction}
+\begin{itemize}
+    \item Logical Flow:
+    \item Output: advice or tips
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.2\textwidth]{diagrams/flow-corrcetion.png}
+            \caption{Logical Flow For Correction}
+        \end{figure}
+    \item Interface Design: null, this part is fulfill with javascript
+    \item Restriction: user must login and take a course
+\end{itemize}
+
+\section{Component: Appraisal Module}
+\subsection{Component Description}
+The Appraisal includes many aspects, users can appraise the course, the course can also appraise the performance of users.\\
+The data of this module make it possible that platform and users benefit themselves.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{diagrams/class-appraisal.png}
+	\caption{Class Diagram of Appraisal Component}
+\end{figure}
+
+\subsection{Responsibilities}
+After user fulfill his course, he can appraise the course to inform other users whether this course is worthy.\\
+In the other hand, system will appraise the user’sperformance to inform user whether he did reaches the course's requirements.
+
+\subsection{Component Design Detail Description}
+\subsubsection{Design for Commenting Course}
+\begin{itemize}
+    \item Input: the appraisal
+    \item Output: appraisal outcome
+    \item Logical Flow:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{diagrams/flow-appraisal.png}
+        \caption{Logical Flow For Commenting Course}
+    \end{figure}
+\end{itemize}
+
+\subsubsection{Design for Viewing Comment}
+\begin{itemize}
+    \item Input: the course id
+    \item Output: the appraisal of this course
+    \item Logical Flow:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{diagrams/flow-ViewMark.png}
+        \caption{Logical Flow For Viewing Comment}
+    \end{figure}
+    \item Interface Design: 
+	\begin{center}
+        \begin{tabular}{p{5cm}p{10cm}}
+            \hline
+            Request Method & GET\\
+            \hline
+            Service Routing &  api/course\\
+            \hline
+            Description & Get detail course data or comment.\\
+            \hline
+            Return Type & Json.\\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{itemize}
+
+\subsubsection{Design for Viewing Posture Report}
+\begin{itemize}
+    \item Input: the course id
+    \item Output: the report of this course
+    \item Logical Flow:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{diagrams/flow-ViewReport.png}
+        \caption{Logical Flow For Viewing Posture Report}
+    \end{figure}
+\end{itemize}
+
 %\section{Course}
 %A Course class is able to aggregate all of the information and student created objects that are associated with a particular course. Created objects include all of the CourseItem objects associated with the Course and a single Chat object to be used as the general chat for the Course.
 %\subsection{Responsibilities}
@@ -1358,6 +1481,123 @@ null
 	\end{enumerate}
 	
 	
+\subsection{Class Comparison}
+\subsubsection{Attribute Description}
+
+\subsubsection{Method Description}
+\begin{enumerate}
+    \item formatKeypoints(keypoints): Array
+        \begin{enumerate}
+            \item Parameters: keypoints
+            \item Return: newKeys
+            \item Function: sort keypoints by name
+            \item Detail Description: format keypoints, and sort keypoints by name
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-0.jpg}\\
+                \end{figure}
+        \end{enumerate}
+
+    \item PoseVector(keypoints, boudingBoxpoints):PoseVector
+        \begin{enumerate}
+            \item Parameters: keypoints, boudingBoxpoints
+            \item Return: PoseVector
+            \item Function: the vector with the same proportion regulate the final comparison
+            \item Detail Description: zoom pose vector to the same proportion
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-1.jpg}\\
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-2.jpg}\\
+                \end{figure}
+        \end{enumerate}
+
+    \item weightedDistanceMatching(poseVector1, poseVector2): Number
+        \begin{enumerate}
+            \item Parameters: poseVector1, poseVector2
+            \item Return: summation1 * summation2
+            \item Function: get similarity distance
+            \item Detail Description: calculate similarity distance with weight
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-3.jpg}\\
+                \end{figure}
+        \end{enumerate}
+
+    \item showResult(poseVector, imageVector, isVideo)
+        \begin{enumerate}
+            \item Parameters: poseVector, imageVector, isVideo
+            \item Return: 
+            \item Function: show comparison result
+            \item Detail Description: if accurate, show green, if relatively accurate, show blue, if not accurate, show red
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/comparison-4.jpg}\\
+                \end{figure}
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Class: Correction}
+\subsubsection{Attribute Description}
+
+\subsubsection{Method Description}
+\begin{enumerate}
+    \item OnePartCorrection(poseVector1, poseVector2, standard): Bool
+        \begin{enumerate}
+            \item Parameters: poseVector1, poseVector2 standard
+            \item Return Bool
+            \item Function: check wrong one posture 
+            \item Detail Description: compare the posture and export comparison outcome
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/correction-0.jpg}\\
+                \end{figure}
+        \end{enumerate}
+
+    \item TwoPartCheck(poseVector1, poseVector2, standard): Bool
+        \begin{enumerate}
+            \item Parameters: poseVector1, poseVector2 standard
+            \item Return Bool
+            \item Function: check wrong posture more than one
+            \item Detail Description: compare the posture and export comparison outcome
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/correction-1.jpg}\\
+                \end{figure}
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Class: Appraisal}
+\subsubsection{Attribute Description}
+
+\subsubsection{Method Description}
+\begin{enumerate}
+    \item getAllCourses(@RequestParam("type") String type, @RequestParam("id") int id ): ResultModel2
+        \begin{enumerate}
+            \item Parameters: type, id
+            \item Return ResultModel2
+            \item Function: get course and appraisal
+            \item Detail Description: get course and appraisal data from backend
+            \item Implement:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/appraisal-0.jpg}\\
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{diagrams/appraisal-1.jpg}\\
+                \end{figure}
+        \end{enumerate}
 \end{enumerate}
 
 
