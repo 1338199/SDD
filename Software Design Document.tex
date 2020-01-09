@@ -47,34 +47,34 @@
 }
 
 \addto\captionsenglish{\renewcommand{\contentsname}{Table Of Contents}}
-\def\myversion{1.0}
+\def\myversion{1.7}
 \date{}
 
 \begin{document}
 
 % Title Page
 \begin{flushright}
-	\rule{16cm}{5pt}\vskip1cm
-	\Huge{SOFTWARE DESIGN\\ DOCUMENT}\\
-	\vspace{0.3cm}
-	for\\
-	\vspace{0.4cm}
-	iSport\\
-	\begin{figure}[H]
-		\flushright
-  		\includegraphics[width=.2\textwidth]{diagrams/logo.png}
-		\end{figure}
-	\normalsize{Release \myversion \\}
-	\vspace{1cm}
-	Prepared by\vspace{0.5cm} \\ 
+    \rule{16cm}{5pt}\vskip1cm
+    \Huge{SOFTWARE DESIGN\\ DOCUMENT}\\
+    \vspace{0.3cm}
+    for\\
+    \vspace{0.4cm}
+    iSport\\
+    \begin{figure}[H]
+        \flushright
+          \includegraphics[width=.2\textwidth]{diagrams/logo.png}
+        \end{figure}
+    \normalsize{Release \myversion \\}
+    \vspace{1cm}
+    Prepared by\vspace{0.5cm} \\ 
         \normalsize{1650940 Jiang Xiaohu\\1650932 Xu Jingnan\\1651058 Wang Yicheng}
         \\
         \vspace{1.1cm}
         \normalsize{School of Software Engineering\\ Tongji University}\\
         \vspace{1.0cm}
         \today
-	\vfill
-	\rule{16cm}{5pt}
+    \vfill
+    \rule{16cm}{5pt}
 \end{flushright}
 
 \tableofcontents
@@ -84,25 +84,23 @@
 \begin{center}
     \begin{tabular}{|p{5cm}|p{3cm}|p{7cm}|p{2cm}|}
         \hline
-	    Name & Date & Reason For Changes & Version\\
+        Name & Date & Reason For Changes & Version\\
         \hline
-	    Jiang Xiaohu & 2019.11.12 & Finish Introduction Part  & v1.0\\
+        Jiang Xiaohu & 2019.12.12 & Finish Introduction Part  & v1.0\\
         \hline
-	    Wang Yicheng & 2019.11.14 & Finish Overview Part & v1.1\\
+        Wang Yicheng & 2019.12.14 & Finish Overview Part & v1.1\\
         \hline
-        Xu Jingnan & 2019.11.16 & Finish External Requirements Part & v1.2\\
+        Xu Jingnan & 2019.12.16 & Some of architecture of part 3 & v1.2\\
         \hline
-        Xu Jingnan, Jiang Xiaohu, Wang Yicheng & 2019.11.18 & Finish Sequence Diagrams for Function Modeling Part& v1.3\\
+        Xu Jingnan, Jiang Xiaohu, Wang Yicheng & 2019.12.18 & Finish part 3 & v1.3\\
         \hline
-        Xu Jingnan & 2019.11.20 & Finish Function Modeling Part & v1.4\\
+        Xu Jingnan & 2019.12.20 & Some of part 4 and 5 & v1.4\\
         \hline
-        Jiang Xiaohu & 2019.11.21 & Finish Data Modeling Part  & v1.5\\
+        Jiang Xiaohu & 2019.12.21 & Some of Part 4 and 5  & v1.5\\
         \hline
-        Wang Yicheng & 2019.11.22 & Finish Behavior Requirements Part & v1.6\\
+        Wang Yicheng & 2019.12.22 & Some of part 4 and 5 & v1.6\\
         \hline
-        Xu Jingnan & 2019.11.23 & Finish Nonfunctional Requirements Part & v1.7\\
-        \hline
-        Jiang Xiaohu & 2019.11.25 & Finish Data Dictionary Requirements Part & v1.8\\
+        Jiang Xiaohu & 2019.12.25 & Add mock up for Part 6 & v1.7\\
         \hline
     \end{tabular}
 \end{center}
@@ -224,9 +222,9 @@ ISport is a web system developed by isport team, aimming at posture correcting w
 The user-case diagram in the folowing figure illustrates the user-case in the system. The system is expected to evolve over at least three releases, ultimately allowing for complete streamlining of the posture correcting process, fitness classes and rehabilitation classes for learning.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{diagrams/big-user-case.png}
-	\caption{overall user-case diagram}
+    \centering
+    \includegraphics[width=1.0\textwidth]{diagrams/big-user-case.png}
+    \caption{overall user-case diagram}
 \end{figure}
 
 
@@ -286,11 +284,11 @@ System administrator can upload new courses to the system for users to choose an
 \begin{center}
     \begin{tabular}{p{5cm}p{11cm}}
         \hline
-	    Users & Desc\\
+        Users & Desc\\
         \hline
-	    People who want to correct their posture &  Normal user is expected to register and log in the system, upload their posture and get the feedback advice from the system\\
+        People who want to correct their posture &  Normal user is expected to register and log in the system, upload their posture and get the feedback advice from the system\\
         \hline
-	    People who want to be fitness & People who want to be fitness is expected to register and log in the system, choose fitness classes for themselves and learn it on the website\\
+        People who want to be fitness & People who want to be fitness is expected to register and log in the system, choose fitness classes for themselves and learn it on the website\\
         \hline
         People who need rehabilitation & People who need rehabilitation is expected to register and log in the system, choose fitness classes for themselves and learn it on the website\\
         \hline
@@ -360,11 +358,11 @@ Software: Browser\\
 \begin{center}
     \begin{tabular}{p{7cm}p{7cm}}
         \hline
-	    Recommand Browser & Version\\
+        Recommand Browser & Version\\
         \hline
-	    Google Chrome &  44+\\
+        Google Chrome &  44+\\
         \hline
-	    Mozilla Firefox & 40+\\
+        Mozilla Firefox & 40+\\
         \hline
         Apple Safari & 7+\\
         \hline
@@ -431,20 +429,9 @@ In addition to test their posture and attend into courses, members are also allo
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[page=1,width=0.9\textwidth]{diagrams/SDD_Diagrams.pdf}
+  \includegraphics[page=1,width=0.9\textwidth]{diagrams/architecturediagram}
   \label{fig:SDD_1}
 \end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[page=2,width=0.9\textwidth]{diagrams/SDD_Diagrams.pdf}
-  \label{fig:SDD_1}
-\end{figure}
-
-
-
-\section{Description of Achitecture Goals}
-The Class Collaboration Application will be hosted by the Google App Engine and users will access the app via a web browser. The app will have access to a database containing lists of all the Courses created for the app, corresponding CourseItems, Documents, and Chatmessages, as well as the Students who have created accounts. The database will save the information for an indefinite amount of time. Our class structures and main use cases by users are shown below. 
 
 \section{System Components Overview}
 We present a component level design for iSport System and each subsystem.\\
@@ -516,7 +503,7 @@ To combine these components, we design a navigation structure for iSport. And pr
 %%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Principal Components}
-	
+    
 \section{Component:User Info Management}
 \subsection{Component Description}
 Users who use the platform for the first time need to register first. After successful registration, the system will jump to the login page. Users log in to the system through a valid user name and password, and then jump to the home page.\\
@@ -525,38 +512,38 @@ Users who use the platform for the first time need to register first. After succ
 
 \noindent All the above behaviors must interact with the database and blockchain to obtain and change the corresponding user personal information. The call relationship between classes is shown in the figure below:
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{diagrams/userinfo.png}
-	\caption{Class Diagram of UserInfo Component}
+    \centering
+    \includegraphics[width=1.0\textwidth]{diagrams/userinfo.png}
+    \caption{Class Diagram of UserInfo Component}
 \end{figure}
 \subsection{Responsibilities}
 \begin{itemize}
-	\item User can register through UserInfo Component.
-	\item User can login iSport by UserInfo Component. 
-	\item User can check his/her information through UserInfo Component on Profile Page. 
-	\item User can update his/her information through UserInfo Component on Profile Page. 
+    \item User can register through UserInfo Component.
+    \item User can login iSport by UserInfo Component. 
+    \item User can check his/her information through UserInfo Component on Profile Page. 
+    \item User can update his/her information through UserInfo Component on Profile Page. 
 \end{itemize}
 
 \subsection{Component Design Detail Description}
 \subsubsection{Design for User Login in}
 \begin{itemize}
-	\item Input: User Name; User Password
-	\item Output: Whether the user log in successfully
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.2\textwidth]{diagrams/login.png}
-	\caption{Logical Flow for User Log in}
+    \item Input: User Name; User Password
+    \item Output: Whether the user log in successfully
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{diagrams/login.png}
+    \caption{Logical Flow for User Log in}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & Post\\
+        Request Method & Post\\
         \hline
-	    Service Routing &  http://[host]:6060/user/login\\
+        Service Routing &  http://[host]:6060/user/login\\
         \hline
-	    Params & \makecell[l]{Params1: user name;\\ Params2: user password;\\ Params3: request}\\ 
+        Params & \makecell[l]{Params1: user name;\\ Params2: user password;\\ Params3: request}\\ 
         \hline
         Params Type & \makecell[l]{user name: String;\\user password:String;\\ request: HttpServletRequest}\\
         \hline
@@ -568,35 +555,35 @@ Users who use the platform for the first time need to register first. After succ
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User has registered before.
+    \item User has registered before.
 \end{enumerate} 
 \end{itemize}
 
 \subsubsection{Design for User Register}
 \begin{itemize}
-	\item Input: \\
-	\begin{enumerate}
-		\item User Name : Got by HttpRequest (compulsory)
-		\item User Password: Got by HttpRequest (compulsory)
-		\item Email Address: Got by HttpRequest (compulsory)
-		\item Phone Number: Got by HttpRequest (compulsory)
-	\end{enumerate}
-	\item Output: Whether the user register successfully
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.2\textwidth]{diagrams/register.png}
-	\caption{Logical Flow for User Register}
+    \item Input: \\
+    \begin{enumerate}
+        \item User Name : Got by HttpRequest (compulsory)
+        \item User Password: Got by HttpRequest (compulsory)
+        \item Email Address: Got by HttpRequest (compulsory)
+        \item Phone Number: Got by HttpRequest (compulsory)
+    \end{enumerate}
+    \item Output: Whether the user register successfully
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{diagrams/register.png}
+    \caption{Logical Flow for User Register}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & Post\\
+        Request Method & Post\\
         \hline
-	    Service Routing &  http://[host]:6060/user/register\\
+        Service Routing &  http://[host]:6060/user/register\\
         \hline
-	    Params & \makecell[l]{Params1: user name;\\ Params2: user password;\\ Params3: phone;\\Params4: email}\\ 
+        Params & \makecell[l]{Params1: user name;\\ Params2: user password;\\ Params3: phone;\\Params4: email}\\ 
         \hline
         Params Type & \makecell[l]{user name: String;\\user password:String;\\ phone: String;\\email: String}\\
         \hline
@@ -608,29 +595,29 @@ Users who use the platform for the first time need to register first. After succ
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User has related information to register iSport.
+    \item User has related information to register iSport.
 \end{enumerate} 
 \end{itemize}
 
 \subsubsection{Design for User Check Personal Information}
 \begin{itemize}
-	\item Input: null
-	\item Output: User's profile page
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.2\textwidth]{diagrams/checkuserinfo.png}
-	\caption{Logical Flow for User Checking Info}
+    \item Input: null
+    \item Output: User's profile page
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{diagrams/checkuserinfo.png}
+    \caption{Logical Flow for User Checking Info}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & GET\\
+        Request Method & GET\\
         \hline
-	    Service Routing &  http://[host]:6060/{userName}/info\\
+        Service Routing &  http://[host]:6060/{userName}/info\\
         \hline
-	    Params & \makecell[l]{Params1: user name}\\ 
+        Params & \makecell[l]{Params1: user name}\\ 
         \hline
         Params Type & \makecell[l]{user name: String}\\
         \hline
@@ -642,35 +629,35 @@ Users who use the platform for the first time need to register first. After succ
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User has personal information stored in database.
+    \item User has personal information stored in database.
 \end{enumerate} 
 \end{itemize}
 
 \subsubsection{Design for User Update Personal Information}
 \begin{itemize}
-	\item Input: 
-	\begin{enumerate}
-		\item user name
-		\item user password
-		\item email
-		\item phone
-	\end{enumerate}
-	\item Output: User's profile page
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.2\textwidth]{diagrams/updateinfo.png}
-	\caption{Logical Flow for User Updating Info}
+    \item Input: 
+    \begin{enumerate}
+        \item user name
+        \item user password
+        \item email
+        \item phone
+    \end{enumerate}
+    \item Output: User's profile page
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{diagrams/updateinfo.png}
+    \caption{Logical Flow for User Updating Info}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & GET\\
+        Request Method & GET\\
         \hline
-	    Service Routing &  http://[host]:6060/{userId}/updateInfo\\
+        Service Routing &  http://[host]:6060/{userId}/updateInfo\\
         \hline
-	    Params & \makecell[l]{Params1: user id;\\Params2: user name;\\Params3: email;\\Params4: tel;\\Params5: password}\\ 
+        Params & \makecell[l]{Params1: user id;\\Params2: user name;\\Params3: email;\\Params4: tel;\\Params5: password}\\ 
         \hline
         Params Type & \makecell[l]{user id: Integer;\\user name: String;\\email: String;\\tel: String\\password: String}\\
         \hline
@@ -682,8 +669,8 @@ Users who use the platform for the first time need to register first. After succ
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User has personal information stored in database.
-	\item User provide valid new personal information.
+    \item User has personal information stored in database.
+    \item User provide valid new personal information.
 \end{enumerate} 
 \end{itemize}
 
@@ -695,33 +682,33 @@ When the user start to exercise, he/she have to stand before the camera and Dete
 
 \noindent The call relationship between classes is shown in the figure below:
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{diagrams/detection.png}
-	\caption{Class Diagram of Detection Component}
+    \centering
+    \includegraphics[width=1.0\textwidth]{diagrams/detection.png}
+    \caption{Class Diagram of Detection Component}
 \end{figure}
 \subsection{Responsibilities}
 \begin{itemize}
-	\item Set up the camera, record and show user's video.
-	\item Get user posture key points and draw the skeleton. 
+    \item Set up the camera, record and show user's video.
+    \item Get user posture key points and draw the skeleton. 
 \end{itemize}
 
 \subsection{Component Design Detail Description}
 \subsubsection{Design for Video, KeyPoints Reading and Playing}
 \begin{itemize}
-	\item Input: null
-	\item Output: User's video
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.2\textwidth]{diagrams/video.png}
-	\caption{Logical Flow for Video Setup and KeyPoints Reading}
+    \item Input: null
+    \item Output: User's video
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{diagrams/video.png}
+    \caption{Logical Flow for Video Setup and KeyPoints Reading}
 \end{figure}
-	\item Function Design
-	\begin{center}
+    \item Function Design
+    \begin{center}
     \begin{tabular}{p{6cm}p{10cm}}
         
         \hline
-	    setupCamera & \makecell[l]{Params: null;\\Return Type:async function;\\Function: Apply authority to user camera.}\\ 
+        setupCamera & \makecell[l]{Params: null;\\Return Type:async function;\\Function: Apply authority to user camera.}\\ 
         \hline
         loadVideo & \makecell[l]{Params: null;\\Return Type:async function;\\Function: Apply authority to user camera.}\\ 
         \hline
@@ -739,8 +726,8 @@ When the user start to exercise, he/she have to stand before the camera and Dete
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User has logged in.
-	\item The camera works well.
+    \item User has logged in.
+    \item The camera works well.
 \end{enumerate} 
 \end{itemize}
 
@@ -755,41 +742,41 @@ This component is aiming at helping user to manage their courses, including view
 
 \noindent All of the behaviors need to interact with the user or course database to get, modify, add, delete the related data. The call relationship between above classes is shown in the figure below:
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{diagrams/course-module-diagram.png}
-	\caption{Class Diagram of course management Component}
+    \centering
+    \includegraphics[width=1.0\textwidth]{diagrams/course-module-diagram.png}
+    \caption{Class Diagram of course management Component}
 \end{figure}
 \subsection{Responsibilities}
 \begin{itemize}
-	\item User can add a specific course to their course list through Course Management Component.
-	\item User can delete a specific course from their course list through Course Management Component.
-	\item User can view their course list through Course Management Component on user's courses page.
-	\item User can view their recommend courses through Course Management Component on the recommend courses page.
-	\item User can view all the fitness courses through Course Management Component on the fitness courses page.
-	\item User can view all the rehabilitation courses through Course Management Component on the rehabilitation courses page.
-	\item System Administrator can add a courses to the database through Course Management Component on the admin profile page.
+    \item User can add a specific course to their course list through Course Management Component.
+    \item User can delete a specific course from their course list through Course Management Component.
+    \item User can view their course list through Course Management Component on user's courses page.
+    \item User can view their recommend courses through Course Management Component on the recommend courses page.
+    \item User can view all the fitness courses through Course Management Component on the fitness courses page.
+    \item User can view all the rehabilitation courses through Course Management Component on the rehabilitation courses page.
+    \item System Administrator can add a courses to the database through Course Management Component on the admin profile page.
 \end{itemize}
 
 \subsection{Component Design Detail Description}
 \subsubsection{Design for user add course}
 \begin{itemize}
-	\item Input: User ID, course ID; 
-	\item Output: Whether the user add the course successfully
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{diagrams/user-add-course.jpg}
-	\caption{Logical Flow for User Add Course}
+    \item Input: User ID, course ID; 
+    \item Output: Whether the user add the course successfully
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{diagrams/user-add-course.jpg}
+    \caption{Logical Flow for User Add Course}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & Post\\
+        Request Method & Post\\
         \hline
-	    Service Routing &  http://[host]:6060/addCourse\\
+        Service Routing &  http://[host]:6060/addCourse\\
         \hline
-	    Params & \makecell[l]{Params1: user id;\\ Params2: course id;}\\ 
+        Params & \makecell[l]{Params1: user id;\\ Params2: course id;}\\ 
         \hline
         Params Type & \makecell[l]{user id: Integer;\\course id:Integer;}\\
         \hline
@@ -801,30 +788,30 @@ This component is aiming at helping user to manage their courses, including view
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User id or course id is not in the database
-	\item The course is already in user's course list
+    \item User id or course id is not in the database
+    \item The course is already in user's course list
 \end{enumerate} 
 \end{itemize}
 
 \subsubsection{Design for user delete course}
 \begin{itemize}
-	\item Input: User ID, course ID; 
-	\item Output: Whether the user delete the course successfully
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{diagrams/user-remove-course.jpg}
-	\caption{Logical Flow for User Remove Course}
+    \item Input: User ID, course ID; 
+    \item Output: Whether the user delete the course successfully
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{diagrams/user-remove-course.jpg}
+    \caption{Logical Flow for User Remove Course}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & Post\\
+        Request Method & Post\\
         \hline
-	    Service Routing &  http://[host]:6060/user/{id}/courses/{courseId}\\
+        Service Routing &  http://[host]:6060/user/{id}/courses/{courseId}\\
         \hline
-	    Params & \makecell[l]{Params1: user id;\\ Params2: course id;}\\ 
+        Params & \makecell[l]{Params1: user id;\\ Params2: course id;}\\ 
         \hline
         Params Type & \makecell[l]{user id: Integer;\\course id:Integer;}\\
         \hline
@@ -836,30 +823,30 @@ This component is aiming at helping user to manage their courses, including view
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User id or course id is not in the database
-	\item The course is not in user's course list
+    \item User id or course id is not in the database
+    \item The course is not in user's course list
 \end{enumerate} 
 \end{itemize}
 
 \subsubsection{Design for user view user's course}
 \begin{itemize}
-	\item Input: User ID; 
-	\item Output: user's course list in JSON format
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{diagrams/mycourse.jpg}
-	\caption{Logical Flow for User View User's Course}
+    \item Input: User ID; 
+    \item Output: user's course list in JSON format
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{diagrams/mycourse.jpg}
+    \caption{Logical Flow for User View User's Course}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & GET\\
+        Request Method & GET\\
         \hline
-	    Service Routing &  http://[host]:6060/user/{id}/{type}/courses\\
+        Service Routing &  http://[host]:6060/user/{id}/{type}/courses\\
         \hline
-	    Params & \makecell[l]{Params1: user id;\\ Params2: course type;}\\ 
+        Params & \makecell[l]{Params1: user id;\\ Params2: course type;}\\ 
         \hline
         Params Type & \makecell[l]{user id: Integer;\\course type: String;}\\
         \hline
@@ -871,30 +858,30 @@ This component is aiming at helping user to manage their courses, including view
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User id is not in the database
-	\item The user's course list is empty
+    \item User id is not in the database
+    \item The user's course list is empty
 \end{enumerate} 
 \end{itemize}
 
 \subsubsection{Design for user view recommend courses}
 \begin{itemize}
-	\item Input: User ID; 
-	\item Output: user's recommend course list in JSON format
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{diagrams/recommend.jpg}
-	\caption{Logical Flow for User View Recommend Courses}
+    \item Input: User ID; 
+    \item Output: user's recommend course list in JSON format
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{diagrams/recommend.jpg}
+    \caption{Logical Flow for User View Recommend Courses}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & GET\\
+        Request Method & GET\\
         \hline
-	    Service Routing &  http://[host]:6060/user/{id}/recommend\\
+        Service Routing &  http://[host]:6060/user/{id}/recommend\\
         \hline
-	    Params & \makecell[l]{Params1: user id;}\\ 
+        Params & \makecell[l]{Params1: user id;}\\ 
         \hline
         Params Type & \makecell[l]{user id: Integer;}\\
         \hline
@@ -906,31 +893,31 @@ This component is aiming at helping user to manage their courses, including view
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item User id is not in the database
-	\item The user has chose all the courses
+    \item User id is not in the database
+    \item The user has chose all the courses
 \end{enumerate} 
 \end{itemize}
 
 
 \subsubsection{Design for user view fitness courses}
 \begin{itemize}
-	\item Input: None; 
-	\item Output: All the fitness course list in JSON format
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{diagrams/fitness-courses.jpg}
-	\caption{Logical Flow for User View Fitness Courses}
+    \item Input: None; 
+    \item Output: All the fitness course list in JSON format
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{diagrams/fitness-courses.jpg}
+    \caption{Logical Flow for User View Fitness Courses}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & Post\\
+        Request Method & Post\\
         \hline
-	    Service Routing &  http://[host]:6060/courses\\
+        Service Routing &  http://[host]:6060/courses\\
         \hline
-	    Params & \makecell[l]{Params1: course type("fitness");}\\ 
+        Params & \makecell[l]{Params1: course type("fitness");}\\ 
         \hline
         Params Type & \makecell[l]{course type: String;}\\
         \hline
@@ -942,29 +929,29 @@ This component is aiming at helping user to manage their courses, including view
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item No fitness courses in the database
+    \item No fitness courses in the database
 \end{enumerate} 
 \end{itemize}
 
 \subsubsection{Design for user view rehabilitation courses}
 \begin{itemize}
-	\item Input: None; 
-	\item Output: All the rehabilitation course list in JSON format
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{diagrams/rehabilitation-courses.jpg}
-	\caption{Logical Flow for User View Rehabilitation Courses}
+    \item Input: None; 
+    \item Output: All the rehabilitation course list in JSON format
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{diagrams/rehabilitation-courses.jpg}
+    \caption{Logical Flow for User View Rehabilitation Courses}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & Post\\
+        Request Method & Post\\
         \hline
-	    Service Routing &  http://[host]:6060/courses\\
+        Service Routing &  http://[host]:6060/courses\\
         \hline
-	    Params & \makecell[l]{Params1: course type("rehabilitation");}\\ 
+        Params & \makecell[l]{Params1: course type("rehabilitation");}\\ 
         \hline
         Params Type & \makecell[l]{course type: String;}\\
         \hline
@@ -976,29 +963,29 @@ This component is aiming at helping user to manage their courses, including view
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item No rehabilitation courses in the database
+    \item No rehabilitation courses in the database
 \end{enumerate} 
 \end{itemize}
 
 \subsubsection{Design for administrator add new course}
 \begin{itemize}
-	\item Input: Course information in JSON format; 
-	\item Output: Whether the administrator add the course successfully
-	\item Logical Flow:
-	 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{diagrams/admin-add-course.jpg}
-	\caption{Logical Flow for Admin add Courses}
+    \item Input: Course information in JSON format; 
+    \item Output: Whether the administrator add the course successfully
+    \item Logical Flow:
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{diagrams/admin-add-course.jpg}
+    \caption{Logical Flow for Admin add Courses}
 \end{figure}
-	\item Interface Design
-	\begin{center}
+    \item Interface Design
+    \begin{center}
     \begin{tabular}{p{5cm}p{10cm}}
         \hline
-	    Request Method & Post\\
+        Request Method & Post\\
         \hline
-	    Service Routing &  http://[host]:6060/uploadCourse\\
+        Service Routing &  http://[host]:6060/uploadCourse\\
         \hline
-	    Params & \makecell[l]{Params1: course id;\\Params2: course name;\\Params3: course videos;\\Params4: course intro;\\Params5: course cover;\\ }\\ 
+        Params & \makecell[l]{Params1: course id;\\Params2: course name;\\Params3: course videos;\\Params4: course intro;\\Params5: course cover;\\ }\\ 
         \hline
         Params Type & \makecell[l]{course id: Integer;\\course name: String;\\course type: String;\\course videos: []Bytes;\\course intro: String;\\course cover: []Bytes;\\}\\
         \hline
@@ -1010,8 +997,8 @@ This component is aiming at helping user to manage their courses, including view
 \end{center}
 \item Restriction and Error Handling\\
 \begin{enumerate}
-	\item Attribution is in wrong format
-	\item Course id is already in the database
+    \item Attribution is in wrong format
+    \item Course id is already in the database
 \end{enumerate} 
 \end{itemize}
 
@@ -1021,9 +1008,9 @@ The main part of this Web Service is our service correcting the posture of user�
 When user take a course and start following the guide, the data collected by camera is uploaded and analyzed, then give the outcome to user.\\ 
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\textwidth]{diagrams/class-comparison.png}
-	\caption{Class Diagram of Posture Comparison Component}
+    \centering
+    \includegraphics[width=0.4\textwidth]{diagrams/class-comparison.png}
+    \caption{Class Diagram of Posture Comparison Component}
 \end{figure}
 
 \subsection{Responsibilities}
@@ -1049,9 +1036,9 @@ When users follow the postures, the video data will be uploaded to our servers, 
 When user get the outcome of comparison, he should follow the tips or advice in the browser, and correct his postures to match the right postures.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{diagrams/class-correction.png}
-	\caption{Class Diagram of Correction Component}
+    \centering
+    \includegraphics[width=0.5\textwidth]{diagrams/class-correction.png}
+    \caption{Class Diagram of Correction Component}
 \end{figure}
 
 \subsection{Responsibilities}
@@ -1078,9 +1065,9 @@ The Appraisal includes many aspects, users can appraise the course, the course c
 The data of this module make it possible that platform and users benefit themselves.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{diagrams/class-appraisal.png}
-	\caption{Class Diagram of Appraisal Component}
+    \centering
+    \includegraphics[width=0.6\textwidth]{diagrams/class-appraisal.png}
+    \caption{Class Diagram of Appraisal Component}
 \end{figure}
 
 \subsection{Responsibilities}
@@ -1111,7 +1098,7 @@ In the other hand, system will appraise the user’sperformance to inform user w
         \caption{Logical Flow For Viewing Comment}
     \end{figure}
     \item Interface Design: 
-	\begin{center}
+    \begin{center}
         \begin{tabular}{p{5cm}p{10cm}}
             \hline
             Request Method & GET\\
@@ -1182,136 +1169,136 @@ In the other hand, system will appraise the user’sperformance to inform user w
 null
 \subsubsection{Methods Description}
 \begin{enumerate}
-	\item getUserName(userId): String
-	\begin{enumerate}
-		\item Parameters: Integer userId
-		\item Return Type: String
-		\item Function: According to the input userId, check if the userId exists, if userId doesn't exist output "Id don't exist", otherwise，return the name of the user with the corresponding id.
-		\item Detail Description: To find the user name with corresponding userId in table user of the database.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{diagrams/getusername1.png}\\
+    \item getUserName(userId): String
+    \begin{enumerate}
+        \item Parameters: Integer userId
+        \item Return Type: String
+        \item Function: According to the input userId, check if the userId exists, if userId doesn't exist output "Id don't exist", otherwise，return the name of the user with the corresponding id.
+        \item Detail Description: To find the user name with corresponding userId in table user of the database.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/getusername1.png}\\
 \end{figure}
-	\end{enumerate}
-	\item getUserInfo(userName): User
-	\begin{enumerate}
-		\item Parameters: String userName
-		\item Return Type: User
-		\item Function: According to the input userName, check if the userName exists and return the corresponding user info.
-		\item Detail Description: To find the user info(name, phone, email, status) with corresponding userName in table user of the database.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/getuserinfo.png}\\
+    \end{enumerate}
+    \item getUserInfo(userName): User
+    \begin{enumerate}
+        \item Parameters: String userName
+        \item Return Type: User
+        \item Function: According to the input userName, check if the userName exists and return the corresponding user info.
+        \item Detail Description: To find the user info(name, phone, email, status) with corresponding userName in table user of the database.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/getuserinfo.png}\\
 \end{figure}
-	\end{enumerate}
-	\item register
-	\begin{enumerate}
-		\item Parameters: userName, password, phone, email
-		\item Return Type: String
-		\item Function: Register an account for user, and store the user info in database. But check if there is already a same user name first.
-		\item Detail Description: To store the user info(name, phone, email, status) in database.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{diagrams/registerfunc.png}\\
-\end{figure}
-\end{enumerate}
-	\item login
-	\begin{enumerate}
-		\item Parameters: userName, password
-		\item Return Type: String
-		\item Function: According to the input userName and password check if the user can login iSport successfully.
-		\item Detail Description: Find the record in table user with corresponding userName and password.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{diagrams/loginfunc.png}\\
+    \end{enumerate}
+    \item register
+    \begin{enumerate}
+        \item Parameters: userName, password, phone, email
+        \item Return Type: String
+        \item Function: Register an account for user, and store the user info in database. But check if there is already a same user name first.
+        \item Detail Description: To store the user info(name, phone, email, status) in database.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{diagrams/registerfunc.png}\\
 \end{figure}
 \end{enumerate}
-	\item updateUserInfo
-	\begin{enumerate}
-		\item Parameters: userId, userName, email, tel, password
-		\item Return Type: String
-		\item Function: According to the input user info to update the user's information.
-		\item Detail Description: Find the record in table user with corresponding userId and update the related info.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.\textwidth]{diagrams/updateinfofunc.png}\\
+    \item login
+    \begin{enumerate}
+        \item Parameters: userName, password
+        \item Return Type: String
+        \item Function: According to the input userName and password check if the user can login iSport successfully.
+        \item Detail Description: Find the record in table user with corresponding userName and password.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{diagrams/loginfunc.png}\\
 \end{figure}
-	\end{enumerate}
+\end{enumerate}
+    \item updateUserInfo
+    \begin{enumerate}
+        \item Parameters: userId, userName, email, tel, password
+        \item Return Type: String
+        \item Function: According to the input user info to update the user's information.
+        \item Detail Description: Find the record in table user with corresponding userId and update the related info.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=1.\textwidth]{diagrams/updateinfofunc.png}\\
+\end{figure}
+    \end{enumerate}
 \end{enumerate}
 
 \subsection{Class User}
 \subsubsection{Attribute Description}
 \begin{itemize}
-	\item id: Integer, every user has a unique id.
-	\item password: String, password for every user.
-	\item name: String, account name for the user.
-	\item phone: String, phone number of the user.
-	\item email: String, email of the user.
-	\item status: String, status of the user. Check the if the user is an administration.
+    \item id: Integer, every user has a unique id.
+    \item password: String, password for every user.
+    \item name: String, account name for the user.
+    \item phone: String, phone number of the user.
+    \item email: String, email of the user.
+    \item status: String, status of the user. Check the if the user is an administration.
 \end{itemize}
 \subsubsection{Methods Description}
 \begin{enumerate}
-	\item User(Integer id, String password, String name, String phone, String email, String status): User
-	\begin{enumerate}
-		\item Parameters: Integer id, String password, String name, String phone, String email, String status
-		\item Return Type: User
-		\item Function: Construction function for class user
-		\item Detail Description: Initialize the attributes of class user.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.\textwidth]{diagrams/userfunc.png}\\
+    \item User(Integer id, String password, String name, String phone, String email, String status): User
+    \begin{enumerate}
+        \item Parameters: Integer id, String password, String name, String phone, String email, String status
+        \item Return Type: User
+        \item Function: Construction function for class user
+        \item Detail Description: Initialize the attributes of class user.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=1.\textwidth]{diagrams/userfunc.png}\\
 \end{figure}
-	\end{enumerate}
-	\item getId():Integer 
-	\begin{enumerate}
-		\item Parameters: null
-		\item Return Type: Integer
-		\item Function: Return the id of the user.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{diagrams/getid.png}\\
+    \end{enumerate}
+    \item getId():Integer 
+    \begin{enumerate}
+        \item Parameters: null
+        \item Return Type: Integer
+        \item Function: Return the id of the user.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{diagrams/getid.png}\\
 \end{figure}
-	\end{enumerate}
-	\item setId(Integer id): void
-	\begin{enumerate}
-		\item Parameters: Integer id
-		\item Return Type: void
-		\item Function: Set the id of the user.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{diagrams/setid.png}\\
-\end{figure}
-\end{enumerate}
-	\item getName
-	\begin{enumerate}
-		\item Parameters: null
-		\item Return Type: String
-		\item Function: Return the account name of the user.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{diagrams/getname.png}\\
+    \end{enumerate}
+    \item setId(Integer id): void
+    \begin{enumerate}
+        \item Parameters: Integer id
+        \item Return Type: void
+        \item Function: Set the id of the user.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/setid.png}\\
 \end{figure}
 \end{enumerate}
-	\item setName(String name):void
-	\begin{enumerate}
-		\item Parameters: String name
-		\item Return Type: void
-		\item Function: Set the account name of the user.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.\textwidth]{diagrams/setname.png}\\
+    \item getName
+    \begin{enumerate}
+        \item Parameters: null
+        \item Return Type: String
+        \item Function: Return the account name of the user.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{diagrams/getname.png}\\
 \end{figure}
-	\end{enumerate}
+\end{enumerate}
+    \item setName(String name):void
+    \begin{enumerate}
+        \item Parameters: String name
+        \item Return Type: void
+        \item Function: Set the account name of the user.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=1.\textwidth]{diagrams/setname.png}\\
+\end{figure}
+    \end{enumerate}
 \end{enumerate}
 
 \section{Main Classes of Course Management Component}
@@ -1321,167 +1308,167 @@ null
 null
 \subsubsection{Methods Description}
 \begin{enumerate}
-	\item getAllCourses(type, [id]): CourseList
-	\begin{enumerate}
-		\item Parameters: String type, Integer id(Optional)
-		\item Return Type: CourseList[]
-		\item Function: Query the type or id given by the parameters from all courses, if the result is null, return "The course list is blank" , otherwise, return the result as a course list.
-		\item Detail Description: To find the courses with corresponding course type or id in table course of the database.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{diagrams/getAllCourses.png}\\
+    \item getAllCourses(type, [id]): CourseList
+    \begin{enumerate}
+        \item Parameters: String type, Integer id(Optional)
+        \item Return Type: CourseList[]
+        \item Function: Query the type or id given by the parameters from all courses, if the result is null, return "The course list is blank" , otherwise, return the result as a course list.
+        \item Detail Description: To find the courses with corresponding course type or id in table course of the database.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/getAllCourses.png}\\
 \end{figure}
-	\end{enumerate}
-	
-	
-	\item getRecommendation(id): CourseList
-	\begin{enumerate}
-		\item Parameters: Integer userId
-		\item Return Type: CourseList[]
-		\item Function: According to the user's courses, generate and return recommend courses for the user to learn.
-		\item Detail Description: Find the user with corresponding userName in table user of the database, then find the courses that the user has chosen before, generate the recommend courses according by these courses and return the result.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/getRecommendation.png}\\
+    \end{enumerate}
+    
+    
+    \item getRecommendation(id): CourseList
+    \begin{enumerate}
+        \item Parameters: Integer userId
+        \item Return Type: CourseList[]
+        \item Function: According to the user's courses, generate and return recommend courses for the user to learn.
+        \item Detail Description: Find the user with corresponding userName in table user of the database, then find the courses that the user has chosen before, generate the recommend courses according by these courses and return the result.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/getRecommendation.png}\\
 \end{figure}
-	\end{enumerate}
-	\item getCourseFirstImage(id): Course
-	\begin{enumerate}
-		\item Parameters: Integer courseId
-		\item Return Type: Course
-		\item Function: According to the course id, find the course and the correspond image, return the course with a cover.
-		\item Detail Description: Find the course through the course id in course database and course image in image database, set the image as the course's cover and return the course with a cover.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{diagrams/getCourseFirstImage.png}\\
-\end{figure}
-\end{enumerate}
-	\item addCourse
-	\begin{enumerate}
-		\item Parameters: Integer userId, Integer courseId
-		\item Return Type: String
-		\item Function: According to the user id and course id, add the course to user's course list.
-		\item Detail Description: Find the user in table user with corresponding userId and the course in table course with corresponding course id, if the user has not chosen the course before, add the course id to the user's courses list and return OK", otherwise, return "This course already added".
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{diagrams/userAddCourse.png}\\
+    \end{enumerate}
+    \item getCourseFirstImage(id): Course
+    \begin{enumerate}
+        \item Parameters: Integer courseId
+        \item Return Type: Course
+        \item Function: According to the course id, find the course and the correspond image, return the course with a cover.
+        \item Detail Description: Find the course through the course id in course database and course image in image database, set the image as the course's cover and return the course with a cover.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{diagrams/getCourseFirstImage.png}\\
 \end{figure}
 \end{enumerate}
-	\item updateComments
-	\begin{enumerate}
-		\item Parameters: exerciseId, commentUser, comment
-		\item Return Type: Integer exerciseId, String commentUser, String comment
-		\item Function: According to the input exerciseId, commentUser and comment, update the comment of the course.
-		\item Detail Description: Find the course in table user with corresponding courseId and update the comment information by the given comment.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.\textwidth]{diagrams/updateComments.png}\\
+    \item addCourse
+    \begin{enumerate}
+        \item Parameters: Integer userId, Integer courseId
+        \item Return Type: String
+        \item Function: According to the user id and course id, add the course to user's course list.
+        \item Detail Description: Find the user in table user with corresponding userId and the course in table course with corresponding course id, if the user has not chosen the course before, add the course id to the user's courses list and return OK", otherwise, return "This course already added".
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{diagrams/userAddCourse.png}\\
 \end{figure}
-	\end{enumerate}
+\end{enumerate}
+    \item updateComments
+    \begin{enumerate}
+        \item Parameters: exerciseId, commentUser, comment
+        \item Return Type: Integer exerciseId, String commentUser, String comment
+        \item Function: According to the input exerciseId, commentUser and comment, update the comment of the course.
+        \item Detail Description: Find the course in table user with corresponding courseId and update the comment information by the given comment.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=1.\textwidth]{diagrams/updateComments.png}\\
+\end{figure}
+    \end{enumerate}
 \end{enumerate}
 
 
 \subsection{Class Exercises}
 \subsubsection{Attribute Description}
 \begin{itemize}
-	\item id: Integer, every exercise has a unique id.
-	\item description: String, the description of the exercise
-	\item title: String, the title of the exercise.
-	\item type: String, the type of the exercise.
-	\item image: Bytes, the cover of the user.
+    \item id: Integer, every exercise has a unique id.
+    \item description: String, the description of the exercise
+    \item title: String, the title of the exercise.
+    \item type: String, the type of the exercise.
+    \item image: Bytes, the cover of the user.
 \end{itemize}
 \subsubsection{Methods Description}
 \begin{enumerate}
-	\item Exercises(Integer id, String description, String title, String type): Exercise
-	\begin{enumerate}
-		\item Parameters: Integer id, String description, String title, String type
-		\item Return Type: Exercise
-		\item Function: Construction function for class exercise
-		\item Detail Description: Initialize the attributes of class exercise.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.\textwidth]{diagrams/exercisefunc.png}\\
+    \item Exercises(Integer id, String description, String title, String type): Exercise
+    \begin{enumerate}
+        \item Parameters: Integer id, String description, String title, String type
+        \item Return Type: Exercise
+        \item Function: Construction function for class exercise
+        \item Detail Description: Initialize the attributes of class exercise.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=1.\textwidth]{diagrams/exercisefunc.png}\\
 \end{figure}
-	\end{enumerate}
-	\item getId():Integer 
-	\begin{enumerate}
-		\item Parameters: null
-		\item Return Type: Integer
-		\item Function: Return the id of the exercise.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{diagrams/ex-getid.png}\\
+    \end{enumerate}
+    \item getId():Integer 
+    \begin{enumerate}
+        \item Parameters: null
+        \item Return Type: Integer
+        \item Function: Return the id of the exercise.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{diagrams/ex-getid.png}\\
 \end{figure}
-	\end{enumerate}
-	\item setId(Integer id): void
-	\begin{enumerate}
-		\item Parameters: Integer id
-		\item Return Type: void
-		\item Function: Set the id of the exercise.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{diagrams/ex-setid.png}\\
-\end{figure}
-\end{enumerate}
-
-	\item getDescription
-	\begin{enumerate}
-		\item Parameters: null
-		\item Return Type: String
-		\item Function: Return the description of the exercise.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{diagrams/ex-getdesc.png}\\
+    \end{enumerate}
+    \item setId(Integer id): void
+    \begin{enumerate}
+        \item Parameters: Integer id
+        \item Return Type: void
+        \item Function: Set the id of the exercise.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/ex-setid.png}\\
 \end{figure}
 \end{enumerate}
 
-	\item setName(String name):void
-	\begin{enumerate}
-		\item Parameters: String description
-		\item Return Type: void
-		\item Function: Set the description of the exercise.
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{diagrams/ex-setdesc.png}\\
+    \item getDescription
+    \begin{enumerate}
+        \item Parameters: null
+        \item Return Type: String
+        \item Function: Return the description of the exercise.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{diagrams/ex-getdesc.png}\\
 \end{figure}
-	\end{enumerate}
-	
-	\item getType():String
-	\begin{enumerate}
-		\item Parameters: null
-		\item Return Type: String
-		\item Function: Get the type of the exercise
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{diagrams/ex-gettype.png}\\
-\end{figure}
-	\end{enumerate}
-	
-		\item setType(String type): void
-	\begin{enumerate}
-		\item Parameters: String type
-		\item Return Type: void
-		\item Function: Set the type of the exercise
-		\item Implement:
-		\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{diagrams/ex-settype.png}\\
-\end{figure}
-	\end{enumerate}
 \end{enumerate}
-	
-	
+
+    \item setName(String name):void
+    \begin{enumerate}
+        \item Parameters: String description
+        \item Return Type: void
+        \item Function: Set the description of the exercise.
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/ex-setdesc.png}\\
+\end{figure}
+    \end{enumerate}
+    
+    \item getType():String
+    \begin{enumerate}
+        \item Parameters: null
+        \item Return Type: String
+        \item Function: Get the type of the exercise
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{diagrams/ex-gettype.png}\\
+\end{figure}
+    \end{enumerate}
+    
+        \item setType(String type): void
+    \begin{enumerate}
+        \item Parameters: String type
+        \item Return Type: void
+        \item Function: Set the type of the exercise
+        \item Implement:
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/ex-settype.png}\\
+\end{figure}
+    \end{enumerate}
+\end{enumerate}
+    
+    
 \subsection{Class Comparison}
 \subsubsection{Attribute Description}
 
@@ -1613,62 +1600,62 @@ null
 
 \section{Mockup of User Interface}
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.72\textwidth]{diagrams/login_register.png}
-	\caption{Login and Register Page}
+    \centering
+    \includegraphics[width=0.72\textwidth]{diagrams/login_register.png}
+    \caption{Login and Register Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/profile.png}
-	\caption{Profile Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/profile.png}
+    \caption{Profile Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/mine.png}
-	\caption{My Courses Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/mine.png}
+    \caption{My Courses Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/rebuild.png}
-	\caption{Recovering Courses Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/rebuild.png}
+    \caption{Recovering Courses Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/keep.png}
-	\caption{Exercise Courses Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/keep.png}
+    \caption{Exercise Courses Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/recommend.png}
-	\caption{Recommend Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/recommend.png}
+    \caption{Recommend Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/comment.png}
-	\caption{Comments Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/comment.png}
+    \caption{Comments Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/report.png}
-	\caption{Reports Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/report.png}
+    \caption{Reports Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/arrange.png}
-	\caption{Arrangement Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/arrange.png}
+    \caption{Arrangement Page}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{diagrams/about-us.jpg}
-	\caption{Introduction Page}
+    \centering
+    \includegraphics[width=0.8\textwidth]{diagrams/about-us.jpg}
+    \caption{Introduction Page}
 \end{figure}
 \end{document}
